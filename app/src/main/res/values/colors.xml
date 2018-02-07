@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3f51b5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#ff4081</color>
+    <color name="primary_material_dark">#26190c</color>
+    <color name="primary_dark_material_dark">#26190c</color>
+    <color name="accent_material_dark">#ffbf02</color>
+    <color name="colorBackground">#26190c</color>
+
+    <color name="count1">#b538af38</color>
+    <color name="count2">#fcb4b4b4</color>
+
+    <color name="colornew">#46ffffff</color>
+    <color name="colornew_h">#ffffff</color>
+    <color name="colornew_y">#feb837</color>
+
+    <color name="reply1">#5c5643</color>
+    <color name="reply2">#fcb4b4b4</color>
+
+    <color name="frameOn">#ef000000</color>
+    <color name="frameOff">#00ffffff</color>
+    <color name="re_prof">#feb836</color>
+
+    <color name="read0">#e046d643</color>
+    <color name="read1">#c4ffa60b</color>
+    <color name="read2">#adafaeae</color>
+    <color name="read_menu">#3900ff21</color>
+
+    <color name="hint_text">#949494</color>
+    <color name="reges_color">#523838</color>
+    <color name="error_text">#ff0000</color>
+    <color name="tip_color">#523838</color>
+    <color name="color_button_no">#d5d5d5</color>
+    <color name="color_button_yes">#feb838</color>
+    <color name="colorfonchat">#79040000</color>
+
+</resources>

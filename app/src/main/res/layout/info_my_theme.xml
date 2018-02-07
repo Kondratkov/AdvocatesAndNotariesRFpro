@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center_horizontal"
+    android:background="@drawable/z_fon_12">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="53dp"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:weightSum="1" >
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="50dp">
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:weightSum="1"
+                android:id="@+id/linearLayout3"
+                android:layout_weight="0.1" >
+
+                <Button
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="@string/project_ago"
+                    android:id="@+id/my_quest_but_close"
+                    android:onClick="onClick"
+                    android:background="#00d7c0c0"
+                    android:layout_weight="0.75"
+                    android:textColor="#ffffff" />
+
+                <ImageView
+                    android:layout_width="1dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginBottom="8dp"
+                    android:background="#ffffff" />
+
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.25" >
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:text="@string/my_quest_header"
+                        android:gravity="center"
+                        android:textSize="18dp"
+                        android:textColor="#ffffff"
+                        android:layout_weight="0.2" />
+
+                    <FrameLayout
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:layout_gravity="center_vertical|right" >
+
+                        <ImageView
+                            android:layout_width="35dp"
+                            android:layout_height="35dp"
+                            android:src="@drawable/xbut_menu_12"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginRight="5dp" />
+
+                        <ImageButton
+                            android:layout_width="50dp"
+                            android:layout_height="50dp"
+                            android:id="@+id/my_quest_but_menu"
+                            android:onClick="onClick"
+                            android:background="#00ffffff"
+                            android:layout_gravity="center" />
+                    </FrameLayout>
+
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginLeft="15dp"
+            android:background="#ffffff"
+            android:layout_marginRight="15dp"
+            android:layout_marginTop="1dp"
+            android:onClick="onClick" />
+    </LinearLayout>
+
+    <android.support.v4.view.ViewPager xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/pager"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".MainActivity"
+        android:layout_marginTop="87dp">
+    </android.support.v4.view.ViewPager>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="35dp"
+        android:layout_marginTop="53dp">
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="0.5">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="33dp"
+                android:text="@string/my_quest_header_list_1"
+                android:id="@+id/my_quest_tv_1"
+                android:gravity="center"
+                android:background="#a0000000"
+                android:textColor="#ffffff"
+                android:onClick="onClick"
+                android:textSize="12dp"
+                android:clickable="true" />
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:id="@+id/my_quest_iv_1"
+                android:background="#feb32a" />
+        </LinearLayout>
+
+        <ImageView
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:id="@+id/imageView4"
+            android:layout_marginTop="3dp"
+            android:layout_marginBottom="5dp"
+            android:background="#32ffffff" />
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="0.5">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="33dp"
+                android:text="Ответы в чате"
+                android:id="@+id/my_quest_tv_2"
+                android:gravity="center"
+                android:background="#a0000000"
+                android:textColor="#1effffff"
+                android:onClick="onClick"
+                android:textSize="12dp"
+                android:clickable="true" />
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:id="@+id/my_quest_iv_2"
+                android:background="#28feb32a" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+</FrameLayout>

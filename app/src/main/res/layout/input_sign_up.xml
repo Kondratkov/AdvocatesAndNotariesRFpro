@@ -1,0 +1,1183 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="rubiroid.jsonproject.input.SignUp"
+    android:background="@drawable/z_fon_12">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:text="Регистрация адвоката"
+            android:gravity="center"
+            android:textSize="18dp"
+            android:layout_weight="0.9"
+            android:focusable="true"
+            android:textColor="#ffffff" />
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:background="#ffffff"></LinearLayout>
+    </LinearLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/scrollView2"
+        android:layout_marginTop="58dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:layout_marginBottom="1dp"
+        android:background="@color/colornew_h">
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:descendantFocusability="beforeDescendants"
+            android:focusable="true"
+            android:focusableInTouchMode="true">
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                >
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:id="@+id/tvSurnameSign"
+                    android:layout_marginLeft="25dp"
+                    android:layout_marginRight="15dp"
+                    android:layout_marginTop="10dp"
+                    android:textColor="#523838" />
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:ems="10"
+                    android:id="@+id/etSurnameSign"
+                    android:hint="@string/surname_sign"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginRight="15dp"
+                    android:textColorHint="@color/hint_text"
+                    android:inputType="textCapSentences"
+                    android:background="@drawable/reges_edit_text_holo_light"
+                    android:textColor="@color/reges_color"
+                    android:textSize="18dp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                >
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:id="@+id/tvNameSign"
+                    android:layout_marginLeft="25dp"
+                    android:layout_marginRight="15dp"
+                    android:layout_marginTop="10dp"
+                    android:textColor="#523838" />
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:inputType="textCapSentences"
+                    android:ems="10"
+                    android:id="@+id/etNameSign"
+                    android:hint="@string/name_sign"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginRight="15dp"
+                    android:textColorHint="@color/hint_text"
+                    android:background="@drawable/reges_edit_text_holo_light"
+                    android:textColor="@color/reges_color"
+                    android:textSize="18dp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                >
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:id="@+id/tvPatronymicSign"
+                    android:layout_marginLeft="25dp"
+                    android:layout_marginRight="15dp"
+                    android:layout_marginTop="10dp"
+                    android:textColor="#523838" />
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:inputType="textCapSentences"
+                    android:ems="10"
+                    android:id="@+id/etPatronymicSign"
+                    android:hint="@string/patronymic_sign"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginRight="15dp"
+                    android:textColorHint="@color/hint_text"
+                    android:background="@drawable/reges_edit_text_holo_light"
+                    android:textColor="@color/reges_color"
+                    android:textSize="18dp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:layout_marginTop="15dp" >
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="25dp"
+                    android:textSize="18dp"
+                    android:text="Регион и город"
+                    android:textColor="#523838"
+                    android:layout_weight="0.7" />
+
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.3"
+                    android:layout_marginRight="10dp">
+
+                    <ProgressBar
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/progressBarRegionSign"
+                        android:visibility="invisible" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:id="@+id/tvRegionSign"
+                        android:layout_marginLeft="5dp"
+                        android:textSize="18dp"
+                        android:textColor="#523838"
+                        android:layout_weight="0.4"
+                        android:singleLine="true"
+                        android:gravity="center"
+                        android:layout_marginRight="5dp" />
+
+                    <Button
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:id="@+id/butRegionSign"
+                        android:background="@drawable/button_reg"
+                        android:onClick="onClick"
+                        android:textColor="#523838"
+                        android:textSize="18dp" />
+                </FrameLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:layout_marginTop="15dp" >
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="25dp"
+                    android:textSize="18dp"
+                    android:textColor="#523838"
+                    android:layout_weight="0.7" />
+
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.3"
+                    android:layout_marginRight="10dp">
+
+                    <ProgressBar
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/progressBarCitySign"
+                        android:visibility="invisible" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:id="@+id/tvCitySign"
+                        android:layout_marginLeft="5dp"
+                        android:textSize="20dp"
+                        android:textColor="#523838"
+                        android:layout_weight="0.4"
+                        android:gravity="center"
+                        android:singleLine="true"
+                        android:layout_marginRight="5dp" />
+
+                    <Button
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:id="@+id/butCitySign"
+                        android:background="@drawable/button_reg"
+                        android:onClick="onClick"
+                        android:textColor="#523838"
+                        android:textSize="18dp" />
+                </FrameLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center_vertical">
+
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.15">
+
+                    <FrameLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <LinearLayout
+                            android:orientation="vertical"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent">
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:id="@+id/tv_adres_sign"
+                                android:layout_marginLeft="15dp"
+                                android:layout_marginRight="15dp"
+                                android:layout_marginTop="10dp"
+                                android:textColor="#523838" />
+
+                            <EditText
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:inputType="text"
+                                android:id="@+id/et_adres_sign"
+                                android:layout_marginRight="15dp"
+                                android:layout_marginLeft="15dp"
+                                android:textColorHint="@color/hint_text"
+                                android:textColor="#523838"
+                                android:autoText="true"
+                                android:textSize="18dp"
+                                android:elevation="1dp"
+                                android:focusable="false"
+                                android:clickable="false" />
+                        </LinearLayout>
+
+                        <Button
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:id="@+id/butSignAddress"
+                            android:background="@drawable/button_reg"
+                            android:layout_marginLeft="15dp"
+                            android:onClick="onClick" />
+
+                    </FrameLayout>
+
+                </LinearLayout>
+
+                <ImageButton
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:id="@+id/ibut_geo_jur"
+                    android:layout_weight="0.85"
+                    android:layout_marginRight="10dp"
+                    android:layout_marginTop="10dp"
+                    android:src="@android:drawable/ic_dialog_map"
+                    android:onClick="onClick"
+                    android:background="#a6bb2424" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:layout_marginTop="15dp" >
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="25dp"
+                    android:textSize="18dp"
+                    android:text="Судебная территория"
+                    android:textColor="#523838"
+                    android:layout_weight="0.7" />
+
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.3"
+                    android:layout_marginRight="15dp"
+                    android:layout_marginLeft="15dp">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:id="@+id/tvSud_terSign"
+                        android:layout_marginLeft="5dp"
+                        android:textSize="20dp"
+                        android:textColor="#523838"
+                        android:layout_weight="0.4"
+                        android:gravity="center"
+                        android:singleLine="true"
+                        android:layout_marginRight="5dp" />
+
+                    <Button
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:id="@+id/butSud_terSign"
+                        android:background="@drawable/button_reg"
+                        android:onClick="onClick"
+                        android:textColor="#523838"
+                        android:textSize="18dp" />
+
+                </FrameLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center_vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:id="@+id/tv_reg_num_sign"
+                    android:layout_marginLeft="25dp"
+                    android:layout_marginRight="15dp"
+                    android:layout_marginTop="15dp"
+                    android:textColor="#523838" />
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:id="@+id/et_reg_num_sign"
+                    android:hint="@string/reg_num_sign"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginRight="15dp"
+                    android:password="false"
+                    android:textColorHint="@color/hint_text"
+                    android:background="@drawable/reges_edit_text_holo_light"
+                    android:singleLine="true"
+                    android:textColor="@color/reges_color"
+                    android:inputType="text"
+                    android:textSize="18dp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:layout_marginTop="15dp">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/tv_stag_sign"
+                    android:layout_marginLeft="25dp"
+                    android:textSize="18sp"
+                    android:text="@string/stag_sign"
+                    android:textColor="#523838"
+                    android:layout_weight="0.4" />
+
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.6">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:id="@+id/et_stag_sign"
+                        android:layout_marginLeft="5dp"
+                        android:textSize="18dp"
+                        android:textColor="#523838"
+                        android:layout_weight="0.4"
+                        android:singleLine="true"
+                        android:gravity="center"
+                        android:layout_marginRight="5dp" />
+
+                    <Button
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:id="@+id/but_stag"
+                        android:background="@drawable/button_reg"
+                        android:onClick="onClick"
+                        android:textColor="#523838"
+                        android:textSize="18dp" />
+                </FrameLayout>
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="15dp"
+                android:layout_marginRight="15dp">
+
+                <Button
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/qualification_sign"
+                    android:id="@+id/but_qualification_sign"
+                    android:onClick="onClick"
+                    android:textColor="#ffffff" />
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/hint_text"
+
+
+                    android:orientation="vertical"
+                    android:paddingLeft="5dp">
+
+
+                    <LinearLayout
+                        android:id="@+id/lila__qualification_sign"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginRight="5dp"
+                        android:background="@color/hint_text"
+                        android:orientation="vertical">
+
+
+                    </LinearLayout>
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" >
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="25dp"
+                    android:layout_marginRight="15dp"
+                    android:layout_marginTop="10dp"
+                    android:textColor="#523838"
+                    android:text="БЮП ( Ставя галочку Вы подтверждаете, что участвуете в соответствующей бесплатной юридической помощи!)"
+                    android:layout_marginBottom="5dp" />
+
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginRight="15dp"
+                    android:background="@color/hint_text">
+
+                    <CheckBox
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="51 УПК "
+                        android:id="@+id/checkBox_sign_1"
+                        android:checked="false" />
+
+                    <CheckBox
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="50 ГК "
+                        android:id="@+id/checkBox_sign_2"
+                        android:checked="false" />
+
+                    <CheckBox
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="324-ФЗ"
+                        android:id="@+id/checkBox_sign_3"
+                        android:checked="false" />
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="1dp" >
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="25dp"
+                    android:layout_marginRight="15dp"
+                    android:layout_marginTop="10dp"
+                    android:textColor="#523838"
+                    android:text="Статус адвоката присвоен (кем, когда именно?) " />
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:inputType="textCapSentences"
+                    android:ems="10"
+                    android:id="@+id/et_status_ad_sign"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginRight="15dp"
+                    android:textColorHint="@color/hint_text"
+                    android:background="@drawable/reges_edit_text_holo_light"
+                    android:textColor="@color/reges_color"
+                    android:textSize="18dp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" >
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="25dp"
+                    android:layout_marginRight="15dp"
+                    android:layout_marginTop="10dp"
+                    android:textColor="#523838"
+                    android:text="Дополнительные официальные данные и характеристики" />
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:inputType="textCapSentences"
+                    android:ems="10"
+                    android:id="@+id/et_dop_info_nagrad_sign"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginRight="15dp"
+                    android:textColorHint="@color/hint_text"
+                    android:background="@drawable/reges_edit_text_holo_light"
+                    android:textColor="@color/reges_color"
+                    android:textSize="18dp"
+                    android:hint="поощрения, награды и т.д." />
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" >
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="25dp"
+                    android:layout_marginRight="15dp"
+                    android:layout_marginTop="10dp"
+                    android:textColor="#523838"
+                    android:text="Ученая степень" />
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:inputType="textCapSentences"
+                    android:ems="10"
+                    android:id="@+id/et_uch_st_and_sign"
+                    android:hint="например, к.ю.н."
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginRight="15dp"
+                    android:textColorHint="@color/hint_text"
+                    android:background="@drawable/reges_edit_text_holo_light"
+                    android:textColor="@color/reges_color"
+                    android:textSize="18dp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" >
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="25dp"
+                    android:layout_marginRight="15dp"
+                    android:layout_marginTop="10dp"
+                    android:textColor="#523838"
+                    android:text="Знание иностранного языка?" />
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:inputType="textCapSentences"
+                    android:ems="10"
+                    android:id="@+id/et_uch_st_and_eg_sign"
+                    android:hint="например, англ"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginRight="15dp"
+                    android:textColorHint="@color/hint_text"
+                    android:background="@drawable/reges_edit_text_holo_light"
+                    android:textColor="@color/reges_color"
+                    android:textSize="18dp" />
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:weightSum="1"
+                android:layout_marginTop="15dp"
+                android:layout_gravity="right"
+                android:paddingLeft="10dp">
+
+                <TextView
+                    android:layout_width="215dp"
+                    android:layout_height="match_parent"
+                    android:text="@string/time_out_sign"
+                    android:textColor="#523838"
+                    android:layout_gravity="center"
+                    android:gravity="center_vertical" />
+
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:padding="2dp">
+
+                    <Button
+                        android:text="да"
+                        android:layout_width="wrap_content"
+                        android:layout_height="25dp"
+                        android:id="@+id/button_1"
+                        android:layout_weight="1"
+                        android:background="@color/color_button_no"
+                        android:paddingRight="1dp" />
+
+                    <Button
+                        android:text="нет"
+                        android:layout_width="wrap_content"
+                        android:layout_height="25dp"
+                        android:id="@+id/button_2"
+                        android:layout_weight="1"
+                        android:background="@color/color_button_no"
+                        android:layout_marginLeft="1dp" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:weightSum="1"
+                android:layout_marginTop="15dp"
+                android:layout_gravity="right"
+                android:paddingLeft="10dp">
+
+                <TextView
+                    android:layout_width="215dp"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/tv_nastavnick_sign"
+                    android:text="Наставничество (имеет ли Вы помощников/стажеров) да/нет"
+                    android:textColor="#523838"
+                    android:layout_gravity="center" />
+
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:padding="2dp">
+
+                    <Button
+                        android:text="да"
+                        android:layout_width="wrap_content"
+                        android:id="@+id/button_3"
+                        android:layout_weight="1"
+                        android:background="@color/color_button_no"
+                        android:paddingRight="1dp"
+                        android:layout_height="25dp" />
+
+                    <Button
+                        android:text="нет"
+                        android:layout_width="wrap_content"
+                        android:layout_height="25dp"
+                        android:id="@+id/button_4"
+                        android:layout_weight="1"
+                        android:background="@color/color_button_no"
+                        android:layout_marginLeft="1dp" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:weightSum="1"
+                android:layout_marginTop="15dp"
+                android:layout_gravity="right"
+                android:paddingLeft="10dp">
+
+                <TextView
+                    android:layout_width="215dp"
+                    android:layout_height="match_parent"
+                    android:textColor="#523838"
+                    android:layout_gravity="center"
+                    android:text="Имели ли Вы взыскания наложенные органами управления адвокатским сообществом?  "
+                    android:gravity="center_vertical" />
+
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:padding="2dp">
+
+                    <Button
+                        android:text="да"
+                        android:layout_width="wrap_content"
+                        android:layout_height="25dp"
+                        android:id="@+id/button_5"
+                        android:layout_weight="1"
+                        android:background="@color/color_button_no"
+                        android:paddingRight="1dp" />
+
+                    <Button
+                        android:text="нет"
+                        android:layout_width="wrap_content"
+                        android:layout_height="25dp"
+                        android:id="@+id/button_6"
+                        android:layout_weight="1"
+                        android:background="@color/color_button_no"
+                        android:layout_marginLeft="1dp" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:weightSum="1"
+                android:layout_marginTop="15dp"
+                android:layout_gravity="right"
+                android:paddingLeft="10dp">
+
+                <TextView
+                    android:layout_width="215dp"
+                    android:layout_height="match_parent"
+                    android:textColor="#523838"
+                    android:layout_gravity="center"
+                    android:text="@string/work_weekqnds_sign"
+                    android:gravity="center_vertical" />
+
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:padding="2dp">
+
+                    <Button
+                        android:text="да"
+                        android:layout_width="wrap_content"
+                        android:layout_height="25dp"
+                        android:id="@+id/button_7"
+                        android:layout_weight="1"
+                        android:background="@color/color_button_no"
+                        android:paddingRight="1dp" />
+
+                    <Button
+                        android:text="нет"
+                        android:layout_width="wrap_content"
+                        android:layout_height="25dp"
+                        android:id="@+id/button_8"
+                        android:layout_weight="1"
+                        android:background="@color/color_button_no"
+                        android:layout_marginLeft="1dp" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:weightSum="1"
+                android:layout_marginTop="15dp"
+                android:layout_gravity="right"
+                android:paddingLeft="10dp">
+
+                <TextView
+                    android:layout_width="215dp"
+                    android:layout_height="match_parent"
+                    android:textColor="#523838"
+                    android:layout_gravity="center"
+                    android:text="@string/fsar_sign"
+                    android:gravity="center_vertical" />
+
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:padding="2dp">
+
+                    <Button
+                        android:text="да"
+                        android:layout_width="wrap_content"
+                        android:layout_height="25dp"
+                        android:id="@+id/button_9"
+                        android:layout_weight="1"
+                        android:background="@color/color_button_no"
+                        android:paddingRight="1dp" />
+
+                    <Button
+                        android:text="нет"
+                        android:layout_width="wrap_content"
+                        android:layout_height="25dp"
+                        android:id="@+id/button_10"
+                        android:layout_weight="1"
+                        android:background="@color/color_button_no"
+                        android:layout_marginLeft="1dp" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="4dp"
+                android:id="@+id/lila_fsar_sign"
+                android:background="#14000000"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp">
+
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" >
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="25dp"
+                        android:layout_marginRight="15dp"
+                        android:layout_marginTop="10dp"
+                        android:textColor="#523838"
+                        android:text="С какого года членство в ФСАР" />
+
+                    <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:inputType="date"
+                        android:ems="10"
+                        android:id="@+id/et_fsar_kogda_sign"
+                        android:layout_marginLeft="15dp"
+                        android:layout_marginRight="15dp"
+                        android:textColorHint="@color/hint_text"
+                        android:background="@drawable/reges_edit_text_holo_light"
+                        android:textColor="@color/reges_color"
+                        android:textSize="18dp"
+                        android:phoneNumber="true" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" >
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="25dp"
+                        android:layout_marginRight="15dp"
+                        android:layout_marginTop="10dp"
+                        android:textColor="#523838"
+                        android:text="Какое  региональное отделении ФСАР" />
+
+                    <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:inputType="textCapSentences"
+                        android:ems="10"
+                        android:id="@+id/et_fsar_gde_sign"
+                        android:layout_marginLeft="15dp"
+                        android:layout_marginRight="15dp"
+                        android:textColorHint="@color/hint_text"
+                        android:background="@drawable/reges_edit_text_holo_light"
+                        android:textColor="@color/reges_color"
+                        android:textSize="18dp" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" >
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:id="@+id/tv_site_sign"
+                    android:layout_marginLeft="25dp"
+                    android:layout_marginRight="15dp"
+                    android:layout_marginTop="15dp"
+                    android:textColor="#523838" />
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:id="@+id/et_site_sign"
+
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginRight="15dp"
+                    android:password="false"
+                    android:textColorHint="@color/hint_text"
+                    android:inputType="textCapSentences"
+                    android:background="@drawable/reges_edit_text_holo_light"
+                    android:singleLine="true"
+                    android:textColor="#523838"
+                    android:hint="@string/site_sign"
+                    android:textSize="18dp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" >
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:id="@+id/tv_firm_sign"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginRight="15dp"
+                    android:layout_marginTop="15dp"
+                    android:textColor="#523838" />
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:id="@+id/et_firm_sign"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginRight="15dp"
+                    android:password="false"
+                    android:textColorHint="@color/hint_text"
+                    android:inputType="textCapSentences"
+                    android:background="@drawable/reges_edit_text_holo_light"
+                    android:singleLine="true"
+                    android:textColor="@color/reges_color"
+                    android:hint="@string/name_firm_sign"
+                    android:textSize="18dp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                >
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:id="@+id/tvPhoneSign"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginRight="15dp"
+                    android:layout_marginTop="10dp"
+                    android:textColor="#523838" />
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:id="@+id/etPhoneSign"
+                    android:hint="@string/phone_sign"
+                    android:layout_marginRight="15dp"
+                    android:layout_marginLeft="15dp"
+                    android:textColorHint="@color/hint_text"
+                    android:background="@drawable/reges_edit_text_holo_light"
+                    android:textColor="@color/reges_color"
+                    android:textSize="18dp"
+                    android:phoneNumber="false"
+                    android:inputType="phone"
+                    android:digits="0123456789"
+                    android:text="+7" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                >
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:id="@+id/tvEmailSign"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginRight="15dp"
+                    android:layout_marginTop="10dp"
+                    android:textColor="#523838" />
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:inputType="textEmailAddress"
+                    android:id="@+id/etEmailSign"
+                    android:hint="@string/email_sign"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginRight="15dp"
+                    android:textColorHint="@color/hint_text"
+                    android:background="@drawable/reges_edit_text_holo_light"
+                    android:textColor="@color/reges_color"
+                    android:textSize="18dp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                >
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:id="@+id/tvPasswordSign"
+                    android:layout_marginLeft="25dp"
+                    android:layout_marginRight="15dp"
+                    android:layout_marginTop="10dp"
+                    android:textColor="#523838" />
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:inputType="textPassword"
+                    android:id="@+id/etPasswordSign"
+                    android:hint="@string/password_sign"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginRight="15dp"
+                    android:textColorHint="@color/hint_text"
+                    android:background="@drawable/reges_edit_text_holo_light"
+                    android:textColor="@color/reges_color"
+                    android:textSize="18dp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                >
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:id="@+id/tvPassword2Sign"
+                    android:layout_marginLeft="25dp"
+                    android:layout_marginRight="15dp"
+                    android:layout_marginTop="10dp"
+                    android:textColor="#523838" />
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:inputType="textPassword"
+                    android:id="@+id/etPassword2Sign"
+                    android:hint="@string/password_two_sign"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginRight="15dp"
+                    android:textColorHint="@color/hint_text"
+                    android:background="@drawable/reges_edit_text_holo_light"
+                    android:textColor="@color/reges_color"
+                    android:textSize="18dp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="0.9">
+
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="5dp">
+
+                    <LinearLayout
+                        android:orientation="horizontal"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center_vertical"
+                        android:gravity="center_horizontal">
+
+                        <CheckBox
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/checkBoxLicen"
+                            android:checked="false"
+                            android:textColor="#523838"
+                            android:background="@color/hint_text" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:textAppearance="?android:attr/textAppearanceMedium"
+                            android:clickable="true"
+                            android:onClick="onClick"
+
+                            android:textStyle="normal"
+                            android:typeface="serif"
+                            android:singleLine="false"
+
+                            android:text="лицензионное соглашение"
+                            android:gravity="center_vertical"
+                            android:textSize="18dp"
+                            android:layout_marginLeft="15dp"
+                            android:textColor="@color/reges_color" />
+
+                    </LinearLayout>
+
+                    <Button
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:id="@+id/but_ls"
+                        android:background="#00ffffff"
+                        android:onClick="onClick" />
+                </FrameLayout>
+
+                <Button
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    android:text="@string/but_registr"
+                    android:id="@+id/but_registr"
+                    android:onClick="onClick"
+                    android:layout_marginRight="15dp"
+                    android:layout_marginLeft="15dp"
+                    android:textColor="#ffffff"
+                    android:layout_marginBottom="15dp"
+                    android:layout_marginTop="5dp" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+    </ScrollView>
+
+</FrameLayout>

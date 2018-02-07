@@ -1,0 +1,631 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".MainActivity"
+    android:weightSum="1">
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:weightSum="1"
+        android:id="@+id/lilaSidebar"
+        android:measureWithLargestChild="false"
+        android:background="#9a040404"
+        android:gravity="right"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true">
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:id="@+id/butSidebar"
+            android:layout_centerVertical="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
+            android:onClick="onClickSidebar"
+            android:layout_gravity="center_vertical"
+            android:textSize="40dp"
+            android:background="#00ffffff"
+            android:layout_weight="0.6" />
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="280dp"
+            android:layout_height="match_parent"
+            android:weightSum="1"
+            android:background="#070500"
+            android:layout_weight="0.4">
+
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="170dp">
+
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:clickable="false"
+                    android:longClickable="false">
+
+                    <FrameLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <LinearLayout
+                            android:orientation="vertical"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent">
+
+                            <LinearLayout
+                                android:orientation="vertical"
+                                android:layout_width="match_parent"
+                                android:layout_height="155dp">
+
+                                <LinearLayout
+                                    android:orientation="vertical"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="50dp">
+
+                                    <ImageView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="40dp"
+                                        android:id="@+id/imageView6"
+                                        android:layout_marginLeft="10dp"
+                                        android:layout_marginTop="10dp" />
+                                </LinearLayout>
+
+                                <LinearLayout
+                                    android:orientation="vertical"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="bottom"
+                                    android:layout_marginTop="15dp">
+
+                                    <TextView
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:id="@+id/tvFSidebar"
+                                        android:textSize="17dp"
+                                        android:textStyle="bold"
+                                        android:shadowColor="#001974"
+                                        android:shadowDx="2"
+                                        android:shadowDy="2"
+                                        android:shadowRadius="5"
+                                        android:textIsSelectable="true"
+                                        android:singleLine="false"
+                                        android:gravity="center"
+                                        android:typeface="monospace"
+                                        android:textColor="#ffffff"
+                                        android:layout_gravity="bottom"
+                                        android:text="Кондратков Александр Сергеевич"
+                                        android:layout_margin="5dp" />
+
+                                </LinearLayout>
+
+                                <LinearLayout
+                                    android:orientation="vertical"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="23dp">
+
+                                </LinearLayout>
+
+                            </LinearLayout>
+
+                            <ImageView
+                                android:layout_width="match_parent"
+                                android:layout_height="2dp"
+                                android:background="#745b46"
+                                android:layout_marginLeft="10dp"
+                                android:layout_marginRight="10dp" />
+                        </LinearLayout>
+
+                        <Button
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:id="@+id/button_fin_close"
+                            android:background="#00ffffff" />
+
+                    </FrameLayout>
+
+                </LinearLayout>
+
+
+            </FrameLayout>
+
+            <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/scrollView3" >
+
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <FrameLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="55dp">
+
+                        <LinearLayout
+                            android:orientation="horizontal"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:id="@+id/lila_side_my_prof"
+                            android:longClickable="true"
+                            android:gravity="center"
+                            android:background="#14000000">
+
+                            <ImageView
+                                android:layout_width="30dp"
+                                android:layout_height="30dp"
+                                android:id="@+id/image_side_my_prof"
+                                android:src="@drawable/icon_my_prof"
+                                android:layout_marginLeft="15dp"
+                                android:layout_marginRight="5dp"
+                                android:onClick="onClickSidebar"
+                                android:longClickable="true" />
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="30dp"
+                                android:id="@+id/sidebar_s1"
+                                android:gravity="center_vertical"
+                                android:text="@string/sidebar_s1"
+                                android:textSize="11sp"
+                                android:textStyle="bold"
+                                android:shadowColor="#001974"
+                                android:shadowDx="2"
+                                android:shadowDy="2"
+                                android:shadowRadius="5"
+                                android:textIsSelectable="true"
+                                android:onClick="onClickSidebar"
+                                android:longClickable="true"
+                                android:focusable="false"
+                                android:clickable="true"
+                                android:layout_marginRight="5dp"
+                                android:layout_marginLeft="5dp" />
+                            />
+                        </LinearLayout>
+
+                        <Button
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:id="@+id/sid_but_1"
+                            android:background="@drawable/xbut_menu"
+                            android:gravity="center"
+                            android:onClick="onClickSidebar" />
+                    </FrameLayout>
+
+                    <FrameLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="55dp"
+                        android:layout_marginTop="1dp">
+
+                        <LinearLayout
+                            android:orientation="horizontal"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:id="@+id/lila_side_my_mess"
+                            android:onClick="onClickSidebar"
+                            android:longClickable="true"
+                            android:gravity="center">
+
+                            <ImageView
+                                android:layout_width="30dp"
+                                android:layout_height="30dp"
+                                android:src="@drawable/icon_my_mess"
+                                android:layout_marginLeft="15dp"
+                                android:layout_marginRight="5dp"
+                                android:onClick="onClickSidebar"
+                                android:longClickable="true" />
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="30dp"
+                                android:gravity="center_vertical"
+                                android:text="@string/sidebar_s2"
+                                android:textSize="11sp"
+                                android:textStyle="bold"
+                                android:shadowColor="#001974"
+                                android:shadowDx="2"
+                                android:shadowDy="2"
+                                android:shadowRadius="5"
+                                android:textIsSelectable="true"
+                                android:onClick="onClickSidebar"
+                                android:longClickable="true"
+                                android:focusable="false"
+                                android:clickable="true"
+                                android:layout_marginLeft="5dp"
+                                android:layout_marginRight="5dp"
+                                android:id="@+id/sidebar_s2" /><![CDATA[
+
+                            />
+                        ]]>
+                        </LinearLayout>
+
+                        <Button
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:id="@+id/sid_but_2"
+                            android:background="@drawable/xbut_menu"
+                            android:onClick="onClickSidebar" />
+
+                    </FrameLayout>
+
+                    <FrameLayout
+                        android:layout_width="1dp"
+                        android:layout_height="1dp"
+                        android:layout_marginTop="1dp">
+
+                        <LinearLayout
+                            android:orientation="horizontal"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:id="@+id/lila_side_my_odres"
+                            android:onClick="onClickSidebar"
+                            android:longClickable="true"
+                            android:gravity="center">
+
+                            <ImageView
+                                android:layout_width="30dp"
+                                android:layout_height="30dp"
+                                android:src="@drawable/icon_my_odres"
+                                android:layout_marginLeft="15dp"
+                                android:layout_marginRight="5dp"
+                                android:longClickable="true" />
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="30dp"
+                                android:gravity="center_vertical"
+                                android:text="@string/sidebar_s3"
+                                android:textSize="11sp"
+                                android:textStyle="bold"
+                                android:shadowColor="#001974"
+                                android:shadowDx="2"
+                                android:shadowDy="2"
+                                android:shadowRadius="5"
+                                android:textIsSelectable="true"
+                                android:longClickable="true"
+                                android:focusable="false"
+                                android:clickable="true"
+                                android:layout_marginLeft="5dp"
+                                android:layout_marginRight="5dp"
+                                android:singleLine="true" />
+                        </LinearLayout>
+
+                        <Button
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:id="@+id/sid_but_3"
+                            android:background="#eb070500" />
+                    </FrameLayout>
+
+                    <TextView
+                        android:background="#23755c47"
+                        android:layout_marginTop="2dp"
+                        android:autoText="false"
+                        android:layout_height="1dp"
+                        android:layout_width="1dp" />
+
+                    <FrameLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="55dp"
+                        android:layout_marginTop="1dp">
+
+                        <LinearLayout
+                            android:orientation="horizontal"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:id="@+id/lila_side_forum"
+                            android:onClick="onClickSidebar"
+                            android:longClickable="true"
+                            android:gravity="center">
+
+                            <ImageView
+                                android:layout_width="30dp"
+                                android:layout_height="30dp"
+                                android:src="@drawable/iconforum"
+                                android:layout_marginLeft="15dp"
+                                android:layout_marginRight="5dp"
+                                android:longClickable="true" />
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="30dp"
+                                android:gravity="center_vertical"
+                                android:text="@string/sidebar_s4"
+                                android:textSize="11sp"
+                                android:textStyle="bold"
+                                android:shadowColor="#001974"
+                                android:shadowDx="2"
+                                android:shadowDy="2"
+                                android:shadowRadius="5"
+                                android:textIsSelectable="true"
+                                android:longClickable="true"
+                                android:focusable="false"
+                                android:clickable="true"
+                                android:layout_marginLeft="5dp"
+                                android:layout_marginRight="5dp"
+                                android:singleLine="true"
+                                android:id="@+id/sidebar_s3" />
+                        </LinearLayout>
+
+                        <Button
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:id="@+id/sid_but_4"
+                            android:background="@drawable/xbut_menu"
+                            android:gravity="center"
+                            android:onClick="onClickSidebar" />
+                    </FrameLayout>
+
+                    <FrameLayout
+                        android:layout_width="1dp"
+                        android:layout_height="1dp"
+                        android:layout_marginTop="1dp">
+
+                        <LinearLayout
+                            android:orientation="horizontal"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:id="@+id/lila_side_paiment"
+                            android:onClick="onClickSidebar"
+                            android:longClickable="true"
+                            android:gravity="center">
+
+                            <ImageView
+                                android:layout_width="30dp"
+                                android:layout_height="30dp"
+                                android:src="@drawable/icon_paiment"
+                                android:layout_marginLeft="15dp"
+                                android:layout_marginRight="5dp"
+                                android:longClickable="true" />
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="30dp"
+                                android:id="@+id/text_side_paiment"
+                                android:gravity="center_vertical"
+                                android:text="@string/sidebar_s5"
+                                android:textSize="11sp"
+                                android:textStyle="bold"
+                                android:shadowColor="#001974"
+                                android:shadowDx="2"
+                                android:shadowDy="2"
+                                android:shadowRadius="5"
+                                android:textIsSelectable="true"
+                                android:onClick="onClickSidebar"
+                                android:longClickable="true"
+                                android:focusable="false"
+                                android:clickable="true"
+                                android:layout_marginLeft="5dp"
+                                android:layout_marginRight="5dp"
+                                android:singleLine="true" />
+                        </LinearLayout>
+
+                        <Button
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:id="@+id/sid_but_5"
+                            android:background="#eb070500"
+                            android:onClick="onClickSidebar" />
+                    </FrameLayout>
+
+                    <FrameLayout
+                        android:layout_width="1dp"
+                        android:layout_height="1dp"
+                        android:layout_marginTop="1dp">
+
+                        <LinearLayout
+                            android:orientation="horizontal"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:id="@+id/lila_side_share"
+                            android:onClick="onClickSidebar"
+                            android:longClickable="true"
+                            android:gravity="center">
+
+                            <ImageView
+                                android:layout_width="30dp"
+                                android:layout_height="30dp"
+                                android:src="@drawable/icon_o_nas"
+                                android:layout_marginLeft="15dp"
+                                android:layout_marginRight="5dp"
+                                android:longClickable="true" />
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="30dp"
+                                android:id="@+id/text_side_share"
+                                android:gravity="center_vertical"
+                                android:text="@string/sidebar_s6"
+                                android:textSize="11sp"
+                                android:textStyle="bold"
+                                android:shadowColor="#001974"
+                                android:shadowDx="2"
+                                android:shadowDy="2"
+                                android:shadowRadius="5"
+                                android:textIsSelectable="true"
+                                android:onClick="onClickSidebar"
+                                android:longClickable="true"
+                                android:focusable="false"
+                                android:clickable="true"
+                                android:layout_marginLeft="5dp"
+                                android:layout_marginRight="5dp"
+                                android:singleLine="true" />
+                        </LinearLayout>
+
+                        <Button
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:id="@+id/sid_but_6"
+                            android:background="#eb070500"
+                            android:onClick="onClickSidebar" />
+                    </FrameLayout>
+
+                    <FrameLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="55dp"
+                        android:layout_marginTop="1dp" >
+
+                        <LinearLayout
+                            android:orientation="horizontal"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:id="@+id/linearLayout5"
+                            android:onClick="onClickSidebar"
+                            android:longClickable="true"
+                            android:gravity="center" >
+
+                            <ImageView
+                                android:layout_width="30dp"
+                                android:layout_height="30dp"
+                                android:src="@android:drawable/ic_menu_manage"
+                                android:layout_marginLeft="15dp"
+                                android:layout_marginRight="5dp"
+                                android:longClickable="true" />
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="30dp"
+                                android:id="@+id/sidebar_s4"
+                                android:gravity="center_vertical"
+                                android:text="@string/sidebar_s7"
+                                android:textSize="11sp"
+                                android:textStyle="bold"
+                                android:shadowColor="#001974"
+                                android:shadowDx="2"
+                                android:shadowDy="2"
+                                android:shadowRadius="5"
+                                android:textIsSelectable="true"
+                                android:onClick="onClickSidebar"
+                                android:longClickable="true"
+                                android:focusable="false"
+                                android:clickable="true"
+                                android:layout_marginLeft="5dp"
+                                android:layout_marginRight="5dp"
+                                android:singleLine="true" />
+                        </LinearLayout>
+
+                        <Button
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:id="@+id/sid_but_7"
+                            android:background="@drawable/xbut_menu"
+                            android:onClick="onClickSidebar" />
+                    </FrameLayout>
+
+                    <FrameLayout
+                        android:layout_width="1dp"
+                        android:layout_marginTop="1dp"
+                        android:layout_height="1dp">
+
+                        <LinearLayout
+                            android:orientation="horizontal"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:id="@+id/lila_side_help"
+                            android:onClick="onClickSidebar"
+                            android:longClickable="true"
+                            android:gravity="center">
+
+                            <ImageView
+                                android:layout_width="30dp"
+                                android:layout_height="30dp"
+                                android:src="@drawable/icon_help"
+                                android:layout_marginLeft="15dp"
+                                android:layout_marginRight="5dp"
+                                android:longClickable="true" />
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="30dp"
+                                android:gravity="center_vertical"
+                                android:text="@string/sidebar_s8"
+                                android:textSize="11sp"
+                                android:textStyle="bold"
+                                android:shadowColor="#001974"
+                                android:shadowDx="2"
+                                android:shadowDy="2"
+                                android:shadowRadius="5"
+                                android:textIsSelectable="true"
+                                android:longClickable="true"
+                                android:focusable="false"
+                                android:clickable="true"
+                                android:layout_marginLeft="5dp"
+                                android:layout_marginRight="5dp"
+                                android:singleLine="false" />
+                        </LinearLayout>
+
+                        <Button
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:id="@+id/sid_but_8"
+                            android:background="#eb070500"
+                            android:onClick="onClickSidebar" />
+                    </FrameLayout>
+                    <FrameLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="55dp"
+                        android:layout_marginTop="1dp">
+
+                        <LinearLayout
+                            android:orientation="horizontal"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:id="@+id/lila_side_share9"
+                            android:onClick="onClickSidebar"
+                            android:longClickable="true"
+                            android:gravity="center">
+
+                            <ImageView
+                                android:layout_width="30dp"
+                                android:layout_height="30dp"
+                                android:src="@drawable/icon_o_nas"
+                                android:layout_marginLeft="15dp"
+                                android:layout_marginRight="5dp"
+                                android:longClickable="true" />
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="30dp"
+                                android:id="@+id/sidebar_s5"
+                                android:gravity="center_vertical"
+                                android:text="@string/sidebar_s9"
+                                android:textSize="11sp"
+                                android:textStyle="bold"
+                                android:shadowColor="#001974"
+                                android:shadowDx="2"
+                                android:shadowDy="2"
+                                android:shadowRadius="5"
+                                android:textIsSelectable="true"
+                                android:onClick="onClickSidebar"
+                                android:longClickable="true"
+                                android:focusable="false"
+                                android:clickable="true"
+                                android:layout_marginLeft="5dp"
+                                android:layout_marginRight="5dp"
+                                android:singleLine="true" />
+                        </LinearLayout>
+
+                        <Button
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:id="@+id/sid_but_9"
+                            android:background="@drawable/xbut_menu"
+                            android:onClick="onClickSidebar" />
+                    </FrameLayout>
+
+                </LinearLayout>
+            </ScrollView>
+
+        </LinearLayout>
+
+    </LinearLayout>
+</RelativeLayout>
