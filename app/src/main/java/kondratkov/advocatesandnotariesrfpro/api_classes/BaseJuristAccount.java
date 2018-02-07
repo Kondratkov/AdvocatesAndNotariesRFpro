@@ -102,11 +102,19 @@ public class BaseJuristAccount {
     public boolean IsOnline;
     public byte[] Image;
     public String LastActivityTime ;
+    public AccountTypes AccountType;
     public kondratkov.advocatesandnotariesrfpro.account.Address Address;
     public double Longitude;
     public double Latitude;
     public double CurrentLongitude;
     public double CurrentLatitude;
     //public File Image;
+
+    public enum AccountTypes
+    {
+        Client,
+        Jurist,
+        DutyJurist
+    }
 
 }

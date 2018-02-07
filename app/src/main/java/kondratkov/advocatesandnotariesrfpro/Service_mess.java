@@ -53,6 +53,7 @@ import java.util.TimerTask;
 import kondratkov.advocatesandnotariesrfpro.account.ClientAccount;
 import kondratkov.advocatesandnotariesrfpro.account.JuristAccount;
 import kondratkov.advocatesandnotariesrfpro.account.JuristOrganisation;
+import kondratkov.advocatesandnotariesrfpro.api_classes.BaseJuristAccount;
 import kondratkov.advocatesandnotariesrfpro.api_classes.NewPushMessage;
 import kondratkov.advocatesandnotariesrfpro.my_info.My_theme;
 
@@ -402,6 +403,7 @@ public class Service_mess extends Service {
             MyApplication.getInstance().getBaseJuristAccount().CurrentLatitude = location.getLatitude();
             MyApplication.getInstance().getBaseJuristAccount().CurrentLongitude = location.getLongitude();
             MyApplication.getInstance().getBaseJuristAccount().IsOnline = true;
+            MyApplication.getInstance().getBaseJuristAccount().AccountType = BaseJuristAccount.AccountTypes.Jurist;
             //Toast.makeText(this, "" + lat.toString() + "-" + lon.toString(), Toast.LENGTH_SHORT).show();
 
         } catch (NullPointerException e) {

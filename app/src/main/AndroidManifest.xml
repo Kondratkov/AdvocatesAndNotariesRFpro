@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="kondratkov.advocatesandnotariesrfpro">
+          package="kondratkov.advocatesandnotariesrfpro">
 
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-    <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
-    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
-    <uses-permission android:name="com.android.vending.BILLING" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="com.android.vending.BILLING"/>
 
     <application
-        android:allowBackup="true"
         android:name=".MyApplication"
+        android:allowBackup="true"
         android:icon="@drawable/layer_ain_pro"
         android:label="@string/app_name"
         android:supportsRtl="true"
@@ -22,68 +22,68 @@
             android:screenOrientation="portrait"
             android:theme="@style/Theme.AiNpro.NoActionBar">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+                <action android:name="android.intent.action.MAIN"/>
 
-                <category android:name="android.intent.category.LAUNCHER" />
+                <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
         <activity
             android:name=".input.LogIN"
             android:label="@string/title_activity_log_in"
             android:screenOrientation="portrait"
-            android:theme="@style/Theme.AiNpro.NoActionBar" />
+            android:theme="@style/Theme.AiNpro.NoActionBar"/>
         <activity
             android:name=".input.SignUP"
             android:label="@string/title_activity_sign_up"
             android:screenOrientation="portrait"
-            android:theme="@style/Theme.AiNpro.NoActionBar" />
+            android:theme="@style/Theme.AiNpro.NoActionBar"/>
 
         <service
             android:name=".Service_mess"
             android:enabled="true"
-            android:exported="true" />
+            android:exported="true"/>
 
         <activity
             android:name=".Asked_user"
             android:label="@string/title_activity_asked_user"
-            android:theme="@style/Theme.AiNpro.NoActionBar" />
+            android:theme="@style/Theme.AiNpro.NoActionBar"/>
         <activity
             android:name=".Asked_forum"
             android:label="@string/title_activity_asked_forum"
-            android:theme="@style/Theme.AiNpro.NoActionBar" />
+            android:theme="@style/Theme.AiNpro.NoActionBar"/>
         <activity
             android:name=".Sidebar"
             android:label="@string/title_activity_sidebar"
             android:screenOrientation="portrait"
-            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+            android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
         <activity
             android:name=".my_info.My_profile"
             android:label="@string/title_activity_my_profile"
-            android:theme="@style/Theme.AiNpro.NoActionBar" />
+            android:theme="@style/Theme.AiNpro.NoActionBar"/>
         <activity
             android:name=".my_info.My_theme"
             android:label="@string/title_activity_my_theme"
-            android:theme="@style/Theme.AiNpro.NoActionBar" />
+            android:theme="@style/Theme.AiNpro.NoActionBar"/>
         <activity
             android:name=".my_info.Profile_redactor"
             android:label="@string/title_activity_profile_redactor"
-            android:theme="@style/Theme.AiNpro.NoActionBar" />
+            android:theme="@style/Theme.AiNpro.NoActionBar"/>
         <activity
             android:name=".Forum"
             android:label="@string/title_activity_forum"
-            android:theme="@style/Theme.AiNpro.NoActionBar" />
+            android:theme="@style/Theme.AiNpro.NoActionBar"/>
         <activity
             android:name=".Settings"
             android:label="@string/title_activity_settings"
-            android:theme="@style/Theme.AiNpro.NoActionBar" />
+            android:theme="@style/Theme.AiNpro.NoActionBar"/>
         <activity
             android:name=".maps.Map_my_adres"
             android:label="@string/title_activity_map_my_adres"
-            android:theme="@style/Theme.AiNpro.NoActionBar" />
+            android:theme="@style/Theme.AiNpro.NoActionBar"/>
         <activity
             android:name=".paid_services.Paid_services"
             android:label="@string/title_activity_paid_services"
-            android:theme="@style/Theme.AiNpro.NoActionBar" />
+            android:theme="@style/Theme.AiNpro.NoActionBar"/>
         <!--
              The API key for Google Maps-based APIs is defined as a string resource.
              (See the file "res/values/google_maps_api.xml").
@@ -94,37 +94,37 @@
         -->
         <meta-data
             android:name="com.google.android.geo.API_KEY"
-            android:value="@string/google_maps_key" />
+            android:value="@string/google_maps_key"/>
 
         <activity
             android:name=".MapsActivity"
-            android:label="@string/title_activity_maps" />
+            android:label="@string/title_activity_maps"/>
 
         <service
             android:name=".Service_billing"
             android:enabled="true"
-            android:exported="true" />
+            android:exported="true"/>
 
         <activity
             android:name=".my_info.About_us"
             android:label="@string/title_activity_about_us"
-            android:theme="@style/Theme.AiNpro.NoActionBar" />
+            android:theme="@style/Theme.AiNpro.NoActionBar"/>
         <activity
             android:name=".my_info.My_frag_quest_chat"
             android:label="@string/title_activity_my_frag_quest_chat"
-            android:theme="@style/Theme.AiNpro.NoActionBar" />
+            android:theme="@style/Theme.AiNpro.NoActionBar"/>
         <activity
             android:name=".input.Password_help"
             android:label="@string/title_activity_password_help"
-            android:theme="@style/Theme.AiNpro.NoActionBar" />
+            android:theme="@style/Theme.AiNpro.NoActionBar"/>
         <activity
             android:name=".maps.Map_address_new"
             android:label="@string/title_activity_map_address_new"
-            android:theme="@style/Theme.AiNpro.NoActionBar" />
+            android:theme="@style/Theme.AiNpro.NoActionBar"/>
         <activity
             android:name=".my_info.MyIcon"
             android:label="@string/title_activity_my_icon"
-            android:theme="@style/Theme.AiNpro.NoActionBar"></activity>
+            android:theme="@style/Theme.AiNpro.NoActionBar"/>
     </application>
 
 </manifest>

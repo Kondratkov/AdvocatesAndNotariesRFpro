@@ -3,6 +3,7 @@ package kondratkov.advocatesandnotariesrfpro;
 import android.app.Application;
 
 import kondratkov.advocatesandnotariesrfpro.api_classes.BaseJuristAccount;
+import kondratkov.advocatesandnotariesrfpro.api_classes.ClientQuestion;
 
 /**
  * Created by kondratkov on 16.12.2017.
@@ -11,6 +12,8 @@ import kondratkov.advocatesandnotariesrfpro.api_classes.BaseJuristAccount;
 public class MyApplication extends Application {
 
     private BaseJuristAccount mBaseJuristAccount;
+
+    private ClientQuestion mClientQuestion;
 
     private static MyApplication singleton;
     // Возвращает экземпляр данного класса
@@ -31,5 +34,13 @@ public class MyApplication extends Application {
 
     public void setBaseJuristAccount(BaseJuristAccount baseJuristAccount) {
         mBaseJuristAccount = baseJuristAccount;
+    }
+
+    public ClientQuestion getClientQuestion() {
+        return mClientQuestion;
+    }
+
+    public void setClientQuestion(ClientQuestion clientQuestion) {
+        mClientQuestion = clientQuestion;
     }
 }

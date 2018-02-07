@@ -263,6 +263,7 @@ public class LogIN extends Activity {
                 in.set_coor_x(-5051);
                 in.set_coor_y(-5051);
                 in.set_address("");
+
                 new UrlConnectionTaskJuristSpecializationSectors().execute();
                 //LogIN.this.finish();
                 break;
@@ -369,6 +370,18 @@ public class LogIN extends Activity {
 //
         dialog.show();
     }
+
+
+    public void  putAdvocateProfileData(){
+        MyApplication.getInstance().getBaseJuristAccount().IsOnline = true;
+        MyApplication.getInstance().getBaseJuristAccount().AccountType = BaseJuristAccount.AccountTypes.Jurist;
+
+        Gson gson = new Gson();
+        new UrlConnectionTaskPubAdvocate().execute(gson.toJson(MyApplication.getInstance().getBaseJuristAccount()));
+    }
+
+
+
 
     public void dialog_password_help(){
         final Dialog dialog = new Dialog(LogIN.this);
@@ -517,12 +530,13 @@ public class LogIN extends Activity {
                 MyApplication.getInstance().setBaseJuristAccount(gson.fromJson(result, BaseJuristAccount.class));
                 in.set_id_jur(MyApplication.getInstance().getBaseJuristAccount().Id);
                 in.set_FIO(MyApplication.getInstance().getBaseJuristAccount().Fio);
+
+                putAdvocateProfileData();
+
             }else{
 
             }
-            Intent intent = new Intent(LogIN.this, MainActivity.class);
-            startActivity(intent);
-            LogIN.this.finish();
+
 
             super.onPostExecute(result);
         }
@@ -677,6 +691,50 @@ public class LogIN extends Activity {
                 Toast.makeText(LogIN.this,
                         "Нет связи с сервером!",
                         Toast.LENGTH_LONG).show();
+            }
+            super.onPostExecute(result);
+        }
+    }
+
+    class UrlConnectionTaskPubAdvocate extends AsyncTask<String, Void, String> {
+
+        @Override
+        protected String doInBackground(String... params) {
+
+            String result = "";
+            OkHttpClient client = new OkHttpClient();
+            MediaType MEDIA_TYPE_MARKDOWN = MediaType.parse("application/json; charset=utf-8");
+
+            String s1 = params[0];
+            String s2 ="http://"+in.get_url()+"/JuristAccounts/PutJuristAccount/"+MyApplication.getInstance().getBaseJuristAccount().Id;
+            String s3 = in.get_token_type()+" "+in.get_token();
+
+            //RequestBody formBody = RequestBody.create(JSON, json_signup);
+            Request request = new Request.Builder()
+                    .header("Authorization", in.get_token_type()+" "+in.get_token())
+                    .url("http://"+in.get_url()+"/JuristAccounts/PutJuristAccount/"+MyApplication.getInstance().getBaseJuristAccount().Id)
+                    .put(RequestBody.create(MEDIA_TYPE_MARKDOWN, params[0]))
+                    .build();
+
+            try {
+                Response response = client.newCall(request).execute();
+                if (!response.isSuccessful()) throw new IOException("Unexpected code " + response);
+
+                result = response.body().string();
+                code = response.code();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            return result;
+        }
+
+        @Override
+        protected void onPostExecute(String result) {
+            //Gson gson = new Gson();
+            if(result!=null && 200<=code && code<300){
+                Intent intent = new Intent(LogIN.this, MainActivity.class);
+                startActivity(intent);
+                LogIN.this.finish();
             }
             super.onPostExecute(result);
         }

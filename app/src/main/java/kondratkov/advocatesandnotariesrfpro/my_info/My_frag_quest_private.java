@@ -48,6 +48,7 @@ import java.util.TimerTask;
 import kondratkov.advocatesandnotariesrfpro.Asked_forum;
 import kondratkov.advocatesandnotariesrfpro.Asked_user;
 import kondratkov.advocatesandnotariesrfpro.IN;
+import kondratkov.advocatesandnotariesrfpro.MyApplication;
 import kondratkov.advocatesandnotariesrfpro.R;
 import kondratkov.advocatesandnotariesrfpro.api_classes.ClientQuestion;
 import kondratkov.advocatesandnotariesrfpro.api_classes.Comment;
@@ -93,6 +94,8 @@ public class My_frag_quest_private extends Fragment {
             public void onItemClick(AdapterView<?> parent, View v, int position,
                                     long id) {
                 in.set_idt(clientQuestion_now[(int) id].Id);
+                MyApplication.getInstance().setClientQuestion(clientQuestion_now[(int)id]);
+
                 in.set_place(0);
                 in.set_Tip(true);
                 Intent inte = new Intent(in.get_context(), Asked_user.class);

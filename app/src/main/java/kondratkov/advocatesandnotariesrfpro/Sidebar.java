@@ -15,7 +15,6 @@ import android.widget.TextView;
 import kondratkov.advocatesandnotariesrfpro.my_info.About_us;
 import kondratkov.advocatesandnotariesrfpro.my_info.My_profile;
 import kondratkov.advocatesandnotariesrfpro.my_info.My_theme;
-import kondratkov.advocatesandnotariesrfpro.paid_services.Paid_services;
 
 public class Sidebar extends Activity implements View.OnTouchListener{
     IN in;
