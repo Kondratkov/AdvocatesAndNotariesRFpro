@@ -8,8 +8,8 @@ android {
         applicationId "kondratkov.advocatesandnotariesrfpro"
         minSdkVersion 16
         targetSdkVersion 23
-        versionCode 42
-        versionName "0.222.3.14B"
+        versionCode 43
+        versionName "0.321.3.14B"
     }
     buildTypes {
         release {

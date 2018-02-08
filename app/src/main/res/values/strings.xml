@@ -5,6 +5,8 @@
     <string name="project_ago">назад</string>
     <string name="project_close_dialog">закрыть</string>
 
+    <string name="version">0.321.3.14B</string>
+
     <string name="title_activity_log_in">LogIN</string>
     <string name="log_in_header">Войдите или зарегистрируйтесь</string>
     <string name="log_in_mail">E-mail</string>
@@ -195,7 +197,7 @@
     <string name="title_activity_maps">Map</string>
     <string name="title_activity_about_us">About_us</string>
 
-    <string name="version">0.222.3.14B</string>
+
     <string name="title_activity_my_frag_quest_chat">My_frag_quest_chat</string>
     <string name="title_activity_password_help">Password_help</string>
 
