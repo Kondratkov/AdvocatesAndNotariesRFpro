@@ -340,7 +340,7 @@ public class Asked_user extends Activity {
             String result = "";
             OkHttpClient client = new OkHttpClient();
             MediaType MEDIA_TYPE_MARKDOWN = MediaType.parse("application/json; charset=utf-8");
-            //RequestBody formBody = RequestBody.create(JSON, json_signup);
+
             Request request = new Request.Builder()
                     .header("Authorization", in.get_token_type()+" "+in.get_token())
                     .url("http://"+in.get_url()+"/ClientQuestions/GetNewComment/"+in.get_idt())
@@ -414,13 +414,8 @@ public class Asked_user extends Activity {
         @Override
         protected void onPostExecute(String result) {
             if(result!=null && 200<=code && code<300){
-                //Gson gson = new Gson();]
+
                 new UrlConnectionTask1().execute();
-                    /*Gson gson = new GsonBuilder().setDateFormat("MM-dd-yy HH:mm").create();
-                    Comment comment12 = gson.fromJson(result, Comment.class);
-                    arrayList.add(comment12);
-                    selection_list = arrayList.size()-2;
-                    start_new_list();*/
             }
             super.onPostExecute(result);
         }
