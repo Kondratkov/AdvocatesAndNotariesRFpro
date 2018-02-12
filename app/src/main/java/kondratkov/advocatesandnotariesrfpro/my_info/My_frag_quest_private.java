@@ -214,6 +214,10 @@ public class My_frag_quest_private extends Fragment {
             tv_them.setText(clientQuestion1[position].Header);
             tv_text.setText(clientQuestion1[position].Body);
             try{
+                tv_nik.setText(clientQuestion1[position].Account.Fio);
+            }catch (Exception e){}
+
+            try{
                 tv_date.setText(in.dateDisplay(clientQuestion1[position].Date));
             }catch (Exception e){}//String("text"));
                 /*CharSequence dateJSON = DateFormat.format("dd.MM.yyyy", Long.parseLong(list.get(position).getString("date")));
@@ -273,6 +277,7 @@ public class My_frag_quest_private extends Fragment {
                 if (!response.isSuccessful()) throw new IOException("Unexpected code " + response);
 
                 result = response.body().string();
+                String d = "d";
 
             } catch (IOException e) {
                 e.printStackTrace();

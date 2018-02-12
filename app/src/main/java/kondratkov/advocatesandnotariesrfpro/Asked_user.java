@@ -249,13 +249,13 @@ public class Asked_user extends Activity {
             this.comments1= comments;
 
             Comment comment = new Comment();
-            comment.AccountType = Comment.AccountTypes.Client;
-            comment.AccountId = in.get_idt();
-            comment.Date = MyApplication.getInstance().getClientQuestion().Date;
-            comment.Message = MyApplication.getInstance().getClientQuestion().Body;
-
             try{
-                comment.From = MyApplication.getInstance().getClientQuestion().Account.UserName;
+                comment.AccountType = Comment.AccountTypes.Client;
+                comment.AccountId = in.get_idt();
+                comment.Date = MyApplication.getInstance().getClientQuestion().Date;
+                comment.Message = MyApplication.getInstance().getClientQuestion().Body;
+                comment.From = MyApplication.getInstance().getClientQuestion().Account.Fio;
+
             }catch (Exception e){}
 
             comments1.add(0, comment);

@@ -84,6 +84,7 @@ public class Asked_forum extends Activity {
     public int topOffset=0;
 
     public Date myDate;
+    public String NameUser="";
 
     public ClientQuestion clientQuestion;
 
@@ -190,6 +191,7 @@ public class Asked_forum extends Activity {
         }catch (Exception e){}
         answers.add(questionAnswerClient);
 
+        NameUser = clientQuestion.Account.Fio;
         for(int i=0; i<clientQuestion.Answers.length; i++){
             int iid = in.get_id_jur();
             try{
@@ -296,7 +298,8 @@ class MyAdapterMess extends ArrayAdapter {
             tv_mess_date.setText(in.dateDisplay(comments1.get(position).Date));
             tv_mess.setText(comments1.get(position).Body);
             try{
-                tv_nik_user_mess.setText(comments1.get(position).Account.Fio);
+                QuestionAnswer cd = comments1.get(position);
+                tv_nik_user_mess.setText(NameUser);
             }catch (Exception e){}
 
             //icon_user_mess.setBackgroundResource(Integer.parseInt(list.get(position).getString("iconuser")));

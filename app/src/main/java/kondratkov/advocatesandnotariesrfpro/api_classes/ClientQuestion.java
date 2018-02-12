@@ -20,6 +20,7 @@ public class ClientQuestion {
     /// <summary>
     /// Id клиента задавшего вопрос
     /// </summary>
+    public String From = "";
     public int ClientId =0;//{ get; set; }
     /// <summary>
     /// Информация по аккаунту клиента

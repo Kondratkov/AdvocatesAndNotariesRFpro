@@ -72,7 +72,7 @@ public class Service_mess extends Service {
     public Service_mess() {
     }
 
-    public static final long NOTIFY_INTERVAL = 60 * 1000; // 60 seconds
+    public static final long NOTIFY_INTERVAL = 30 * 1000; // 60 seconds
 
     private Handler mHandler = new Handler();
     private Timer mTimer = null;
@@ -408,6 +408,7 @@ public class Service_mess extends Service {
 
         } catch (NullPointerException e) {
             //Toast.makeText(this, "HELL-NO", Toast.LENGTH_SHORT).show();
+            MyApplication.getInstance().getBaseJuristAccount().IsOnline = true;
             Log.e("HELL-NO", "n", e);
             e.printStackTrace();
 
@@ -451,9 +452,18 @@ public class Service_mess extends Service {
             if(result!=null && 200<=code && code<300){
                 url_starting1(result);
 
+
+
                 if(sPref.getBoolean("pref_setting_push_ch_coord", false)){
-                    putCurrentLatLon();
+
+                }else{
+                    MyApplication.getInstance().getBaseJuristAccount().CurrentLatitude = 0;
+                    MyApplication.getInstance().getBaseJuristAccount().CurrentLongitude = 0;
                 }
+
+                MyApplication.getInstance().getBaseJuristAccount().IsOnline = true;
+                MyApplication.getInstance().getBaseJuristAccount().AccountType = BaseJuristAccount.AccountTypes.Jurist;
+                putCurrentLatLon();
             }
             super.onPostExecute(result);
         }
@@ -506,6 +516,7 @@ public class Service_mess extends Service {
         protected void onPostExecute(String result) {
             //Gson gson = new Gson();
             if(result!=null && 200<=code && code<300){
+                int d = code;
             }
             super.onPostExecute(result);
         }

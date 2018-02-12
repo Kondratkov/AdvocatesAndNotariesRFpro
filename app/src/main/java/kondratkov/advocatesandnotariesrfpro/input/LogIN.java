@@ -531,7 +531,11 @@ public class LogIN extends Activity {
                 in.set_id_jur(MyApplication.getInstance().getBaseJuristAccount().Id);
                 in.set_FIO(MyApplication.getInstance().getBaseJuristAccount().Fio);
 
-                putAdvocateProfileData();
+                if(MyApplication.getInstance().getBaseJuristAccount().Longitude==0 || MyApplication.getInstance().getBaseJuristAccount().Latitude==0){
+                    new FileReadTask().execute();
+                }else{
+                    putAdvocateProfileData();
+                }
 
             }else{
 
@@ -739,78 +743,69 @@ public class LogIN extends Activity {
             super.onPostExecute(result);
         }
     }
-/*
 
-Gson gson = new Gson();
-                try{
-                    JuristAccount juristAccount = gson.fromJson(result, JuristAccount.class);
-                    in.set_id_jur(juristAccount.Id);
-                }catch (Exception e){
+    private class FileReadTask extends AsyncTask<Void, Void, Void> {
 
-                }
-
-
-
-    class AsyncTaskExample extends AsyncTask<Void, Integer, String> {
-        // фоновая работа
+        String textResult;
 
         @Override
-        protected String doInBackground(Void... params) {
-            String url = "http://"+in.get_url()+"/123.authjur";//adress d
-            Log.d(DEBUG_TAG, "ЗАПРОС НА ВХОД " + json_login);
-            return ServerSendData.sendRegData(url, json_login);
-        }
+        protected Void doInBackground(Void... params) {
 
-        // выполняется после doInBackground, имеет доступ к UI
-        protected void onPostExecute(String result) {
-            Log.d(DEBUG_TAG, "ОТВЕТ НА ВХОД " + result);
-            //new AdIn().startMain();
-            tv_log_in_error.setText("eeee");
-            dialog.dismiss();
-            iditeNaHui(result);
+            URL textUrl;
+            String address = MyApplication.getInstance().getBaseJuristAccount().Address.City +","
+                    + MyApplication.getInstance().getBaseJuristAccount().Address.Street+","
+                    + MyApplication.getInstance().getBaseJuristAccount().Address.StreetNumber;
 
-
-            //Log.d(DEBUG_TAG, "zetta3 "+ new LogIN().etPhoneEmali.getText());
-            //new LogIN().iditeNaHui();
-
-            // status будет содержать login_busy
-        }
-    }
-    public static class ServerSendData {
-
-        public static String sendRegData(String stringUrl, String json_user_str) {
-
-            String result = null;
             try {
-                URL url = new URL(stringUrl);
-                URLConnection connection = url.openConnection();
-                HttpURLConnection httpConnection = (HttpURLConnection) connection;
-                httpConnection.setDoOutput(true);
+                textUrl = new URL("http://maps.google.com/maps/api/geocode/json?address="+address.replaceAll(" ", "")+"&sensor=false&language=ru");
 
-                httpConnection.setChunkedStreamingMode(0);
-                OutputStream out = new BufferedOutputStream(httpConnection.getOutputStream());
-                out.write(json_user_str.getBytes());
+                BufferedReader bufferReader = new BufferedReader(
+                        new InputStreamReader(textUrl.openStream()));
 
-                out.flush();
-                out.close();
-
-                InputStream in = new BufferedInputStream(httpConnection.getInputStream());
-                int responseCode = 0;
-                responseCode = httpConnection.getResponseCode();
-
-                if (responseCode == HttpURLConnection.HTTP_OK) {
-                    InputStream is = httpConnection.getInputStream();
-                    BufferedReader r = new BufferedReader(new InputStreamReader(in));
-
-                    result = r.readLine();
-                } else {
+                String StringBuffer;
+                String stringText = "";
+                while ((StringBuffer = bufferReader.readLine()) != null) {
+                    stringText += StringBuffer;
                 }
+                bufferReader.close();
+
+                textResult = stringText;
             } catch (MalformedURLException e) {
-            } catch (IOException e1) {
+                // TODO Auto-generated catch block
+                e.printStackTrace();
+                textResult = e.toString();
+            } catch (IOException e) {
+                // TODO Auto-generated catch block
+                e.printStackTrace();
+                textResult = e.toString();
+            }
+            return null;
+        }
+
+        @Override
+        protected void onPostExecute(Void result) {
+
+            JSONObject jsonObject = null;
+
+            try {
+                jsonObject = new JSONObject(textResult);
+
+                MyApplication.getInstance().getBaseJuristAccount().Latitude = jsonObject.getJSONArray("results")
+                        .getJSONObject(0).getJSONObject("geometry").getJSONObject("location")
+                        .getDouble("lat");
+                MyApplication.getInstance().getBaseJuristAccount().Longitude =jsonObject.getJSONArray("results")
+                        .getJSONObject(0).getJSONObject("geometry").getJSONObject("location")
+                        .getDouble("lng");
+
+                putAdvocateProfileData();
+
+            } catch (JSONException e) {
+                e.printStackTrace();
+                putAdvocateProfileData();
             }
 
-            return result;
+            super.onPostExecute(result);
         }
     }
-*/}
+}
 

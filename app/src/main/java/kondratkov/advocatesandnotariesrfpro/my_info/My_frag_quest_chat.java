@@ -247,7 +247,9 @@ public class My_frag_quest_chat extends Fragment {
                 rowView.setBackgroundColor(Color.argb(45,1,1,1));
             }
 
-            tv_forum_quest_nik.setText(clientQuestions[position].Account.UserName);
+            try{
+                tv_forum_quest_nik.setText(clientQuestions[position].Account.Fio);
+            }catch (Exception e){}
 
             try{
                 tv_forum_quest_date.setText(in.dateDisplay(clientQuestions[position].Date));

@@ -193,6 +193,10 @@ public class My_frag_quest_forum extends Fragment {
             //tv_text.setText(list.get(position).get_text());
                 /*CharSequence dateJSON = DateFormat.format("dd.MM.yyyy", Long.parseLong(list.get(position).getString("date")));
                 tv_date.setText(String.valueOf(dateJSON));*/
+            try{
+                tv_nik.setText(clientQuestion[position].Account.Fio);
+            }catch (Exception e){}
+
             tv_them.setText(clientQuestion[position].Header);
             tv_text.setText(clientQuestion[position].Body);
             try{
