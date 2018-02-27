@@ -534,7 +534,8 @@ public class LogIN extends Activity {
                 if(MyApplication.getInstance().getBaseJuristAccount().Longitude==0 || MyApplication.getInstance().getBaseJuristAccount().Latitude==0){
                     new FileReadTask().execute();
                 }else{
-                    putAdvocateProfileData();
+                    Intent intent = new Intent(LogIN.this, MainActivity.class);
+                    startActivity(intent);//putAdvocateProfileData();
                 }
 
             }else{

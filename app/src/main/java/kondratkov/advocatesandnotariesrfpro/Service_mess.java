@@ -61,7 +61,7 @@ public class Service_mess extends Service {
 
     private static final String DEBUG_TAG = "qwerty";
     IN in;
-    public double lat=0, lon=0;
+    public double CurrentLatitude = 0, CurrentLongitude = 0;
     public String URL;
     public String json_start;
     public JSONObject jService;
@@ -109,24 +109,25 @@ public class Service_mess extends Service {
                 @Override
                 public void run() {
                     // display toast
+                    XY_set1();
                     JSONObject json_st = new JSONObject();
                     if(sPref.getBoolean("pref_setting_push_ch_coord", false)){
+
                         try {
-                            json_st.put("lng", lon);
-                            json_st.put("lad", lat);
+                            json_st.put("lng", CurrentLongitude );
+                            json_st.put("lat", CurrentLatitude );
                         } catch (JSONException e) {
                             e.printStackTrace();
                         }
                         json_start = String.valueOf(json_st);
 
-                        XY_set1();
                     }else{
                         try {
                             json_st.put("lng", 0);
-                            json_st.put("lad", 0);
+                            json_st.put("lat", 0);
 
-                            MyApplication.getInstance().getBaseJuristAccount().CurrentLatitude = 0;
-                            MyApplication.getInstance().getBaseJuristAccount().CurrentLongitude = 0;
+                            //MyApplication.getInstance().getBaseJuristAccount().CurrentLatitude = 0;
+                            //MyApplication.getInstance().getBaseJuristAccount().CurrentLongitude = 0;
 
                             putCurrentLatLon();
 
@@ -266,18 +267,27 @@ public class Service_mess extends Service {
             if(newPushMessages1.size()==1){
                 if(sPref.getBoolean("pref_setting_push_1", true)==false){
 
-                }else{
-                    sendBigPictureStyleNotification("У вас новое сообщение!", "Сообщение от ",
-                            "У вас новое сообщение", 2,
+                }else if(newPushMessages1.get(0).OwnerId != in.get_id_jur()){
+                    String name="";
+                    try{
+                        name = newPushMessage[0].OwnerName;
+                    }catch (Exception e){}
+
+                    sendBigPictureStyleNotification("У вас новое сообщение!", "Сообщение от "+name,
+                            "Сообщение от "+name, 2,
                             newPushMessage[0].ServiceId);
                 }
             }else
             if(newPushMessages1.size()>1){
                 if(sPref.getBoolean("pref_setting_push_1", true)==false){
 
-                }else{
-                    sendBigPictureStyleNotification("У вас новое сообщение!", "Сообщение от ",
-                            "У вас новые сообщения", 1,
+                }else if(newPushMessages1.get(0).OwnerId != in.get_id_jur()){
+                    String name="";
+                    try{
+                        name = newPushMessage[0].OwnerName;
+                    }catch (Exception e){}
+                    sendBigPictureStyleNotification("У вас новое сообщение!", "Сообщение от "+name,
+                            "У Вас есть новые сообщения", 1,
                             1);//sendBigPictureStyleNotification("Вам задали вопрос!", "","", 1, 0);
                 }
 
@@ -393,22 +403,22 @@ public class Service_mess extends Service {
         }
         android.location.Location location = locationManager.getLastKnownLocation(bestProvider);
 
-        DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
-        Date date = new Date();
+        //DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
+        //Date date = new Date();
         try {
-            lat = location.getLatitude();
-            lon = location.getLongitude();
+            CurrentLatitude = location.getLatitude();
+            CurrentLongitude  = location.getLongitude();
             in.set_coor_x(location.getLatitude());
             in.set_coor_y(location.getLongitude());
-            MyApplication.getInstance().getBaseJuristAccount().CurrentLatitude = location.getLatitude();
-            MyApplication.getInstance().getBaseJuristAccount().CurrentLongitude = location.getLongitude();
-            MyApplication.getInstance().getBaseJuristAccount().IsOnline = true;
-            MyApplication.getInstance().getBaseJuristAccount().AccountType = BaseJuristAccount.AccountTypes.Jurist;
+           // MyApplication.getInstance().getBaseJuristAccount().CurrentLatitude = location.getLatitude();
+            //MyApplication.getInstance().getBaseJuristAccount().CurrentLongitude = location.getLongitude();
+            //MyApplication.getInstance().getBaseJuristAccount().IsOnline = true;
+            //MyApplication.getInstance().getBaseJuristAccount().AccountType = BaseJuristAccount.AccountTypes.Jurist;
             //Toast.makeText(this, "" + lat.toString() + "-" + lon.toString(), Toast.LENGTH_SHORT).show();
 
         } catch (NullPointerException e) {
             //Toast.makeText(this, "HELL-NO", Toast.LENGTH_SHORT).show();
-            MyApplication.getInstance().getBaseJuristAccount().IsOnline = true;
+            //MyApplication.getInstance().getBaseJuristAccount().IsOnline = true;
             Log.e("HELL-NO", "n", e);
             e.printStackTrace();
 
@@ -425,7 +435,9 @@ public class Service_mess extends Service {
             MediaType MEDIA_TYPE_MARKDOWN = MediaType.parse("application/json; charset=utf-8");
 
             String s1 = params[0];
-            String s2 ="";
+            String s3 = "http://"+in.get_url()+"/Account/GetNewPushes";
+            String s2 =in.get_token_type()+" "+in.get_token();
+            String ss = " ";
 
             //RequestBody formBody = RequestBody.create(JSON, json_signup);
             Request request = new Request.Builder()
@@ -475,8 +487,7 @@ public class Service_mess extends Service {
         Gson gson = new Gson();
         sNewLatLon = gson.toJson(MyApplication.getInstance().getBaseJuristAccount());
         String ss = sNewLatLon;
-
-        new UrlConnectionTaskCurrentLatLon().execute(sNewLatLon);
+       //new UrlConnectionTaskCurrentLatLon().execute(sNewLatLon);
     }
 
 
