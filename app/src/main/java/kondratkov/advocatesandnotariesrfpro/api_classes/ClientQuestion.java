@@ -41,11 +41,18 @@ public class ClientQuestion {
     /// Количество непрочтенных ответов
     /// </summary>
     public int IsNotReadedAnswers=0;// { get; set; }
+    public QuestionStatusRead  StatusRead;
     public String ParkingTime="" ;//{ get; set; }
     /// <summary>
     /// Ответы
     /// </summary>
     public QuestionAnswer[] Answers = null;//{ get; set; }
    //public Comment[] Comments = null;
+
+    public enum QuestionStatusRead{
+        ClientSent,
+        Read,
+        JuristSent
+    }
 
 }

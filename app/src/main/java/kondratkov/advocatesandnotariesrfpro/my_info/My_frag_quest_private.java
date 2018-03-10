@@ -230,18 +230,20 @@ public class My_frag_quest_private extends Fragment {
             }*/
             //tv_nik.setText(list.get(position).get_date());//"от "+list.get(position).get_name());//String("name"));
 
-            if(clientQuestion1[position].IsNotReadedAnswers>0){
+
+
+            if(clientQuestion1[position].StatusRead == ClientQuestion.QuestionStatusRead.ClientSent){
                 //tv_read.setBackgroundResource(R.color.read0);
                 tv_read.setTextColor(getResources().getColor(R.color.read0));
                 tv_nik.setTextColor(getResources().getColor(R.color.read0));
                 tv_read.setText("новый");
             }
-            /*else if(list.get(position).get_read()==0||list.get(position).get_read()==1||list.get(position).get_read()==4){
+            else if(clientQuestion1[position].StatusRead == ClientQuestion.QuestionStatusRead.JuristSent){
                 //tv_read.setBackgroundResource(R.color.read1);
                 tv_read.setTextColor(getResources().getColor(R.color.read1));
                 tv_nik.setTextColor(getResources().getColor(R.color.read1));
-                tv_read.setText("неотв.");
-            }*/
+                tv_read.setText("не просмотр.");
+            }
             else{
                 //tv_read.setBackgroundResource(R.color.read2);
                 tv_read.setTextColor(getResources().getColor(R.color.read2));
