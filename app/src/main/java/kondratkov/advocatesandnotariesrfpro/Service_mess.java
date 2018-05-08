@@ -114,7 +114,7 @@ public class Service_mess extends Service {
                         try {
                             json_st.put("lng", lon);
                             json_st.put("lad", lat);
-                        } catch (JSONException e) {
+                        } catch (Exception e) {
                             e.printStackTrace();
                         }
                         json_start = String.valueOf(json_st);
@@ -130,7 +130,7 @@ public class Service_mess extends Service {
 
                             putCurrentLatLon();
 
-                        } catch (JSONException e) {
+                        } catch (Exception e) {
                             e.printStackTrace();
                         }
                         json_start = String.valueOf(json_st);

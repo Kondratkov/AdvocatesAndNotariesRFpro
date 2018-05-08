@@ -125,6 +125,8 @@
             android:name=".my_info.MyIcon"
             android:label="@string/title_activity_my_icon"
             android:theme="@style/Theme.AiNpro.NoActionBar"/>
+        <activity android:name=".my_info.My_photo_redaction">
+        </activity>
     </application>
 
 </manifest>

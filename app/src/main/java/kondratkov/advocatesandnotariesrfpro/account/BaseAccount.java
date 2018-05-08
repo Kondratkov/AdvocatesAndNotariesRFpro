@@ -23,7 +23,7 @@ public abstract class BaseAccount {
     public double Latitude;
     public double CurrentLongitude;
     public double CurrentLatitude;
-
+    public String ImageUrl;
     public enum AccountType
     {
         client,

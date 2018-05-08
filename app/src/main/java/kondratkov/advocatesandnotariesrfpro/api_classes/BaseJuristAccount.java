@@ -108,6 +108,7 @@ public class BaseJuristAccount {
     public double Latitude;
     public double CurrentLongitude;
     public double CurrentLatitude;
+    public String ImageUrl;
     //public File Image;
 
     public enum AccountTypes

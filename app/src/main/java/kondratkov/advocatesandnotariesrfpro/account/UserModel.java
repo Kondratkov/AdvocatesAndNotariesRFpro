@@ -12,6 +12,7 @@ public class UserModel {
     public AccountTypes AccountType = null;
     public int AccountId;
     public Object AccountProfile;
+    public String ImageUrl;
 
     public enum AccountTypes
     {

@@ -100,7 +100,12 @@ public class My_frag_quest_chat extends Fragment {
         lv_forum = (ListView)view.findViewById(R.id.my_quest_frag_chat);
         in.set_Tip(false);
         in.set_place(1);
-        sPref = PreferenceManager.getDefaultSharedPreferences(in.get_activity());
+        try{
+            sPref = PreferenceManager.getDefaultSharedPreferences(in.get_activity());
+        }catch (Exception e){
+
+        }
+
         OneStart();
         on_Start();
         return view;

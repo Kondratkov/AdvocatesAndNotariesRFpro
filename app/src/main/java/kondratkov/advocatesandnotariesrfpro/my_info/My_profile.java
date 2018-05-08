@@ -21,6 +21,7 @@ import com.squareup.okhttp.MediaType;
 import com.squareup.okhttp.OkHttpClient;
 import com.squareup.okhttp.Request;
 import com.squareup.okhttp.Response;
+import com.squareup.picasso.Picasso;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -112,19 +113,10 @@ public class My_profile extends Activity {
         prof_progressBar = (ProgressBar)findViewById(R.id.prof_progressBar);
 
         image_profile_jur_icon  = (ImageView)findViewById(R.id.prof_jur_image_icon);
-        image_profile_jur_icon.setOnTouchListener(new View.OnTouchListener() {
-
+        image_profile_jur_icon.setOnClickListener(new View.OnClickListener() {
             @Override
-            public boolean onTouch(View v, MotionEvent event) {
-                // TODO Auto-generated method stub
-                if (event.getAction() == MotionEvent.ACTION_DOWN) {
-
-                    //Intent inSid = new Intent(My_profile.this, MyIcon.class);
-                    //startActivity(inSid);
-                    //flagView = 1;
-                    //onTouchL();
-                }
-                return false;
+            public void onClick(View view) {
+                setPhotoProfile();
             }
         });
 
@@ -134,6 +126,11 @@ public class My_profile extends Activity {
         prof_progressBar.setVisibility(ProgressBar.VISIBLE);
         new UrlConnectionTask().execute();
         //new AsyncTaskProfileJur().execute();
+    }
+
+    private void setPhotoProfile(){
+        Intent intent = new Intent(My_profile.this, My_photo_redaction.class);
+        startActivity(intent);
     }
 
     public void start_activity(){
@@ -225,6 +222,11 @@ public class My_profile extends Activity {
         try{tv_stag.setText(in.dateDisplayStag(juristAccount.ExperienceLevel));}
         catch (Exception e){}
 
+        if(juristAccount.ImageUrl!=null){
+            Picasso.with(this.getApplicationContext())
+                    .load("http://app.mmka.info/"+juristAccount.ImageUrl)
+                    .into(image_profile_jur_icon);
+        }
 
         stopProgressBar();
     }

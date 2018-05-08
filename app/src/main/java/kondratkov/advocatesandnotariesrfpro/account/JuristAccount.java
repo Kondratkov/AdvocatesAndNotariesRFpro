@@ -56,6 +56,6 @@ public class JuristAccount extends BaseAccount{
     public JuristSpecialization[] Specializations ;//{ get; set; }
     /// Наставничество (имеет ли помощников/стажеров) да/нет
     public boolean Tutorship;// { get; set; }
-
+    public String ImageUrl;
 
 }

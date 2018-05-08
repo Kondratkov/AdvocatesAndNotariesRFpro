@@ -8,8 +8,8 @@ android {
         applicationId "kondratkov.advocatesandnotariesrfpro"
         minSdkVersion 16
         targetSdkVersion 23
-        versionCode 43
-        versionName "0.321.3.14B"
+        versionCode 50
+        versionName "0.531.3.14B"
     }
     buildTypes {
         release {
@@ -46,6 +46,9 @@ dependencies {
 //    compile "io.reactivex:rxandroid:$rxandroidVersion"
 //    compile "io.reactivex:rxjava:$rxjavaVersion"
 //    compile "ru.arturvasilov:rx-loader:$rxLoaderVersion"
+
+
+    compile 'com.squareup.picasso:picasso:2.5.2'
 
     compile "com.jakewharton:butterknife:$butterKnifeVersion"
     annotationProcessor "com.jakewharton:butterknife-compiler:$butterKnifeVersion"
