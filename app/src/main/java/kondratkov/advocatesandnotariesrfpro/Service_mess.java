@@ -128,7 +128,7 @@ public class Service_mess extends Service {
                             MyApplication.getInstance().getBaseJuristAccount().CurrentLatitude = 0;
                             MyApplication.getInstance().getBaseJuristAccount().CurrentLongitude = 0;
 
-                            putCurrentLatLon();
+                           // putCurrentLatLon();
 
                         } catch (Exception e) {
                             e.printStackTrace();
@@ -246,7 +246,9 @@ public class Service_mess extends Service {
             for(int i =0; i<newPushMessage.length; i++){
                 switch (newPushMessage[i].EnumPushTypes()){
                     case 1:
-                        newPushMessages1.add(newPushMessage[i]);
+                        if(newPushMessage[i].AccountId != in.get_id_jur()){
+                            newPushMessages1.add(newPushMessage[i]);
+                        }
                         break;
                     case 2:
                         newPushMessages2.add(newPushMessage[i]);
@@ -267,6 +269,7 @@ public class Service_mess extends Service {
                 if(sPref.getBoolean("pref_setting_push_1", true)==false){
 
                 }else{
+
                     sendBigPictureStyleNotification("У вас новое сообщение!", "Сообщение от ",
                             "У вас новое сообщение", 2,
                             newPushMessage[0].ServiceId);
@@ -451,65 +454,65 @@ public class Service_mess extends Service {
             if(result!=null && 200<=code && code<300){
                 url_starting1(result);
 
-                if(sPref.getBoolean("pref_setting_push_ch_coord", false)){
-                    putCurrentLatLon();
-                }
+//                if(sPref.getBoolean("pref_setting_push_ch_coord", false)){
+//                    putCurrentLatLon();
+//                }
             }
             super.onPostExecute(result);
         }
     }
 
 
-    private void putCurrentLatLon(){
-        String sNewLatLon = "";
-        Gson gson = new Gson();
-        sNewLatLon = gson.toJson(MyApplication.getInstance().getBaseJuristAccount());
-        String ss = sNewLatLon;
+//    private void putCurrentLatLon(){
+//        String sNewLatLon = "";
+//        Gson gson = new Gson();
+//        sNewLatLon = gson.toJson(MyApplication.getInstance().getBaseJuristAccount());
+//        String ss = sNewLatLon;
+//
+//        //new UrlConnectionTaskCurrentLatLon().execute(sNewLatLon);
+//    }
 
-        new UrlConnectionTaskCurrentLatLon().execute(sNewLatLon);
-    }
 
-
-    class UrlConnectionTaskCurrentLatLon extends AsyncTask<String, Void, String> {
-
-        @Override
-        protected String doInBackground(String... params) {
-
-            String result = "";
-            OkHttpClient client = new OkHttpClient();
-            MediaType MEDIA_TYPE_MARKDOWN = MediaType.parse("application/json; charset=utf-8");
-
-            String s1 = params[0];
-            String s2 ="http://"+in.get_url()+"/JuristAccounts/PutJuristAccount/"+MyApplication.getInstance().getBaseJuristAccount().Id;
-            String s3 = in.get_token_type()+" "+in.get_token();
-
-            //RequestBody formBody = RequestBody.create(JSON, json_signup);
-            Request request = new Request.Builder()
-                    .header("Authorization", in.get_token_type()+" "+in.get_token())
-                    .url("http://"+in.get_url()+"/JuristAccounts/PutJuristAccount/"+MyApplication.getInstance().getBaseJuristAccount().Id)
-                    .put(RequestBody.create(MEDIA_TYPE_MARKDOWN, params[0]))
-                    .build();
-
-            try {
-                Response response = client.newCall(request).execute();
-                if (!response.isSuccessful()) throw new IOException("Unexpected code " + response);
-
-                result = response.body().string();
-                code = response.code();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-            return result;
-        }
-
-        @Override
-        protected void onPostExecute(String result) {
-            //Gson gson = new Gson();
-            if(result!=null && 200<=code && code<300){
-            }
-            super.onPostExecute(result);
-        }
-    }
+//    class UrlConnectionTaskCurrentLatLon extends AsyncTask<String, Void, String> {
+//
+//        @Override
+//        protected String doInBackground(String... params) {
+//
+//            String result = "";
+//            OkHttpClient client = new OkHttpClient();
+//            MediaType MEDIA_TYPE_MARKDOWN = MediaType.parse("application/json; charset=utf-8");
+//
+//            String s1 = params[0];
+//            String s2 ="http://"+in.get_url()+"/JuristAccounts/PutJuristAccount/"+MyApplication.getInstance().getBaseJuristAccount().Id;
+//            String s3 = in.get_token_type()+" "+in.get_token();
+//
+//            //RequestBody formBody = RequestBody.create(JSON, json_signup);
+//            Request request = new Request.Builder()
+//                    .header("Authorization", in.get_token_type()+" "+in.get_token())
+//                    .url("http://"+in.get_url()+"/JuristAccounts/PutJuristAccount/"+MyApplication.getInstance().getBaseJuristAccount().Id)
+//                    .put(RequestBody.create(MEDIA_TYPE_MARKDOWN, params[0]))
+//                    .build();
+//
+//            try {
+//                Response response = client.newCall(request).execute();
+//                if (!response.isSuccessful()) throw new IOException("Unexpected code " + response);
+//
+//                result = response.body().string();
+//                code = response.code();
+//            } catch (IOException e) {
+//                e.printStackTrace();
+//            }
+//            return result;
+//        }
+//
+//        @Override
+//        protected void onPostExecute(String result) {
+//            //Gson gson = new Gson();
+//            if(result!=null && 200<=code && code<300){
+//            }
+//            super.onPostExecute(result);
+//        }
+//    }
 
 
 
