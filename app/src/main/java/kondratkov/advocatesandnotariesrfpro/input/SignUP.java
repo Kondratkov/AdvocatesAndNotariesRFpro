@@ -805,7 +805,7 @@ public class SignUP extends Activity implements DatePickerFragment.DatePickedLis
 
 //заполнение данных адвоката
                             JuristAccount baseAccount = new JuristAccount();
-                            String JOPA__;
+
                             baseAccount.CanFastComing = bool1;// Срочный выезд
                             baseAccount.Tutorship = bool2;// Наставничество (имеет ли помощников/стажеров) да/нет
                             baseAccount.HasRecoveries = bool3;// Наличие взысканий
@@ -814,25 +814,24 @@ public class SignUP extends Activity implements DatePickerFragment.DatePickedLis
                             String dateInString = "Friday, Jun 7, 2013 12:10:56 PM";
                             SimpleDateFormat sdf = new SimpleDateFormat("yyyy MM dd HH:mm:ss");
                             dateInString = sdf.format(date_stag.getTime());
-                            baseAccount.ExperienceLevel = dateInString;JOPA__ = gson.toJson(baseAccount);
-                            JOPA__ = gson.toJson(baseAccount);
-                            JOPA__ = "!!!!!!";
+                            baseAccount.ExperienceLevel = dateInString;
+
                             baseAccount.Address = addressTHIS;
-                            JOPA__ = gson.toJson(baseAccount);
+
                             baseAccount.Specializations = juristSpecializations;
-                            JOPA__ = gson.toJson(baseAccount);
+
                             baseAccount.NumberInApReestr = String.valueOf(et_reg_num_sign.getText());//String.valueOf(.getText());String.valueOf(.getText());
-                            JOPA__ = gson.toJson(baseAccount);
+
                             baseAccount.Name = String.valueOf(etNameSign.getText());
-                            JOPA__ = gson.toJson(baseAccount);
+
                             baseAccount.Surename = String.valueOf(etSurnameSign.getText());
-                            JOPA__ = gson.toJson(baseAccount);
+
                             baseAccount.Patronymic = String.valueOf(etPatronymicSign.getText());
-                            JOPA__ = gson.toJson(baseAccount);
+
                             baseAccount.Email = String.valueOf(etEmailSign.getText());
-                            JOPA__ = gson.toJson(baseAccount);
+
                             baseAccount.Phone = String.valueOf(etPhoneSign.getText());
-                            JOPA__ = gson.toJson(baseAccount);
+
                             baseAccount.Site= String.valueOf(et_site_sign.getText());
 
                             JuristOrganisation juristOrganisation=new JuristOrganisation();
@@ -840,27 +839,26 @@ public class SignUP extends Activity implements DatePickerFragment.DatePickedLis
                             baseAccount.JuristOrganisation = juristOrganisation;
 
                             baseAccount.JudicialArea = this.judicialAreas;
-                            JOPA__ = gson.toJson(baseAccount);
+
                             baseAccount.Bups = bup1;
 
-                            JOPA__ = gson.toJson(baseAccount);
                             baseAccount.JuristStatusAssignedBy = String.valueOf(et_status_ad_sign.getText());
-                            JOPA__ = gson.toJson(baseAccount);
+
                             baseAccount.ExtendedInfo = String.valueOf(et_dop_info_nagrad_sign.getText());
-                            JOPA__ = gson.toJson(baseAccount);
+
                             baseAccount.PhdInfo = String.valueOf(et_uch_st_and_sign.getText());;
-                            JOPA__ = gson.toJson(baseAccount);
+
                             baseAccount.LanguagesInfo = String.valueOf(et_uch_st_and_eg_sign.getText());
-                            JOPA__ = gson.toJson(baseAccount);
+
                             baseAccount.IsFsarMember = bool5;
                             //baseAccount.FsarMamberDate = ;
-                            JOPA__ = gson.toJson(baseAccount);
+
                             baseAccount.FsarRegionalOffice = String.valueOf(et_fsar_gde_sign.getText());
                             LATITUDE = in.get_coor_x();
                             LONGITUDE = in.get_coor_y();
                             baseAccount.Latitude = LATITUDE;
                             baseAccount.Longitude = LONGITUDE;
-                            JOPA__ = gson.toJson(baseAccount);
+
 
 
 

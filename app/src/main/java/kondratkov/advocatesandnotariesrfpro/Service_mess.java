@@ -61,6 +61,7 @@ public class Service_mess extends Service {
 
     private static final String DEBUG_TAG = "qwerty";
     IN in;
+    private boolean start_flow = true;
     public double lat=0, lon=0;
     public String URL;
     public String json_start;
@@ -111,19 +112,21 @@ public class Service_mess extends Service {
                     // display toast
                     JSONObject json_st = new JSONObject();
                     if(sPref.getBoolean("pref_setting_push_ch_coord", false)){
+                        XY_set1();
+
                         try {
                             json_st.put("lng", lon);
-                            json_st.put("lad", lat);
+                            json_st.put("lat", lat);
                         } catch (Exception e) {
                             e.printStackTrace();
                         }
+                        Log.d("qwerty_", "LL ="+String.valueOf(lon) + " - "+String.valueOf(lat));
                         json_start = String.valueOf(json_st);
-
-                        XY_set1();
                     }else{
+                        Log.d("qwerty_", "LL =0!0");
                         try {
                             json_st.put("lng", 0);
-                            json_st.put("lad", 0);
+                            json_st.put("lat", 0);
 
                             MyApplication.getInstance().getBaseJuristAccount().CurrentLatitude = 0;
                             MyApplication.getInstance().getBaseJuristAccount().CurrentLongitude = 0;
@@ -231,102 +234,104 @@ public class Service_mess extends Service {
 
         Gson gson = new Gson();
         try{
-        NewPushMessage[] newPushMessage =null;
-        newPushMessage = gson.fromJson(s, NewPushMessage[].class);
-        if(newPushMessage.length==0){
+            NewPushMessage[] newPushMessage =null;
+            String f = s;
+            newPushMessage = gson.fromJson(s, NewPushMessage[].class);
+            if(newPushMessage.length==0){
 
-        }else{
-
-            ArrayList<NewPushMessage> newPushMessages1 = new ArrayList<NewPushMessage>();
-            ArrayList<NewPushMessage>newPushMessages2 = new ArrayList<NewPushMessage>();//null;
-            ArrayList<NewPushMessage>newPushMessages3 = new ArrayList<NewPushMessage>();//null;
-            ArrayList<NewPushMessage>newPushMessages4 = new ArrayList<NewPushMessage>();//null;
-            ArrayList<NewPushMessage>newPushMessages5 = new ArrayList<NewPushMessage>();//null;
-
-            for(int i =0; i<newPushMessage.length; i++){
-                switch (newPushMessage[i].EnumPushTypes()){
-                    case 1:
-                        if(newPushMessage[i].AccountId != in.get_id_jur()){
-                            newPushMessages1.add(newPushMessage[i]);
-                        }
-                        break;
-                    case 2:
-                        newPushMessages2.add(newPushMessage[i]);
-                        break;
-                    case 3:
-                        newPushMessages3.add(newPushMessage[i]);
-                        break;
-                    case 4:
-                        newPushMessages4.add(newPushMessage[i]);
-                        break;
-                    case 5:
-                        newPushMessages5.add(newPushMessage[i]);
-                        break;
-                }
-            }
-
-            if(newPushMessages1.size()==1){
-                if(sPref.getBoolean("pref_setting_push_1", true)==false){
-
-                }else{
-
-                    sendBigPictureStyleNotification("У вас новое сообщение!", "Сообщение от ",
-                            "У вас новое сообщение", 2,
-                            newPushMessage[0].ServiceId);
-                }
-            }else
-            if(newPushMessages1.size()>1){
-                if(sPref.getBoolean("pref_setting_push_1", true)==false){
-
-                }else{
-                    sendBigPictureStyleNotification("У вас новое сообщение!", "Сообщение от ",
-                            "У вас новые сообщения", 1,
-                            1);//sendBigPictureStyleNotification("Вам задали вопрос!", "","", 1, 0);
-                }
-
-            }else
-            if(newPushMessages2.size()==1){
-                sendBigPictureStyleNotification("У вас новое сообщение!", "Сообщение от ",
-                        "Новые сообщения в консультации", 0,
-                        1);//sendBigPictureStyleNotification("Вам задали вопрос!", "","", 1, 0);
-            }else
-            if(newPushMessages2.size()>1){
-                sendBigPictureStyleNotification("У вас новое сообщение!", "Сообщение от ",
-                        "Новые сообщения в консультации", 0,
-                        1);//sendBigPictureStyleNotification("Вам задали вопрос!", "","", 1, 0);
-            }else
-            if(newPushMessages3.size()==1){
-                sendBigPictureStyleNotification("У вас новое сообщение!", "Сообщение от ",
-                        "изменение статуса", 0,
-                        1);//sendBigPictureStyleNotification("Вам задали вопрос!", "","", 1, 0);
-            }else
-            if(newPushMessages3.size()>1){
-                sendBigPictureStyleNotification("У вас новое сообщение!", "Сообщение от ",
-                        "Изменение статуса", 0,
-                        1);//sendBigPictureStyleNotification("Вам задали вопрос!", "","", 1, 0);
-            }else
-            if(newPushMessages4.size()==1){
-                sendBigPictureStyleNotification("У вас новое сообщение!", "Сообщение от ",
-                        "У вас новое сообщение в заказе документов", 0,
-                        1);//sendBigPictureStyleNotification("Вам задали вопрос!", "","", 1, 0);
-            }else
-            if(newPushMessages4.size()>1){
-                sendBigPictureStyleNotification("У вас новое сообщение!", "Сообщение от ",
-                        "У вас новое сообщение в заказе документов", 0,
-                        1);//sendBigPictureStyleNotification("Вам задали вопрос!", "","", 1, 0);
-            }
-            if(newPushMessages5.size()==1){
-                sendBigPictureStyleNotification("У вас новое сообщение!", "Сообщение от ",
-                        "Изменение статуса", 0,
-                        1);//sendBigPictureStyleNotification("Вам задали вопрос!", "","", 1, 0);
-            }else
-            if(newPushMessages5.size()>1){
-                sendBigPictureStyleNotification("У вас новое сообщение!", "Сообщение от ",
-                        "Изменение статуса", 0,
-                        1);//sendBigPictureStyleNotification("Вам задали вопрос!", "","", 1, 0);
             }else{
 
-            }}
+                ArrayList<NewPushMessage> newPushMessages1 = new ArrayList<NewPushMessage>();
+                ArrayList<NewPushMessage>newPushMessages2 = new ArrayList<NewPushMessage>();//null;
+                ArrayList<NewPushMessage>newPushMessages3 = new ArrayList<NewPushMessage>();//null;
+                ArrayList<NewPushMessage>newPushMessages4 = new ArrayList<NewPushMessage>();//null;
+                ArrayList<NewPushMessage>newPushMessages5 = new ArrayList<NewPushMessage>();//null;
+
+                for(int i =0; i<newPushMessage.length; i++){
+                    switch (newPushMessage[i].EnumPushTypes()){
+                        case 1:
+                            if(newPushMessage[i].AccountId != in.get_id_jur()){
+                                newPushMessages1.add(newPushMessage[i]);
+                            }
+                            break;
+                        case 2:
+                            newPushMessages2.add(newPushMessage[i]);
+                            break;
+                        case 3:
+                            newPushMessages3.add(newPushMessage[i]);
+                            break;
+                        case 4:
+                            newPushMessages4.add(newPushMessage[i]);
+                            break;
+                        case 5:
+                            newPushMessages5.add(newPushMessage[i]);
+                            break;
+                    }
+                }
+
+                if(newPushMessages1.size()==1){
+                    if(sPref.getBoolean("pref_setting_push_1", true)==false){
+
+                    }else{
+
+                        sendBigPictureStyleNotification("У вас новое сообщение!", "Сообщение от ",
+                                "У вас новое сообщение", 2,
+                                newPushMessage[0].ServiceId);
+                    }
+                }else
+                if(newPushMessages1.size()>1){
+                    if(sPref.getBoolean("pref_setting_push_1", true)==false){
+
+                    }else{
+                        sendBigPictureStyleNotification("У вас новое сообщение!", "Сообщение от ",
+                                "У вас новые сообщения", 1,
+                                1);//sendBigPictureStyleNotification("Вам задали вопрос!", "","", 1, 0);
+                    }
+
+                }else
+                if(newPushMessages2.size()==1){
+                    sendBigPictureStyleNotification("У вас новое сообщение!", "Сообщение от ",
+                            "Новые сообщения в консультации", 0,
+                            1);//sendBigPictureStyleNotification("Вам задали вопрос!", "","", 1, 0);
+                }else
+                if(newPushMessages2.size()>1){
+                    sendBigPictureStyleNotification("У вас новое сообщение!", "Сообщение от ",
+                            "Новые сообщения в консультации", 0,
+                            1);//sendBigPictureStyleNotification("Вам задали вопрос!", "","", 1, 0);
+                }else
+                if(newPushMessages3.size()==1){
+                    sendBigPictureStyleNotification("У вас новое сообщение!", "Сообщение от ",
+                            "изменение статуса", 0,
+                            1);//sendBigPictureStyleNotification("Вам задали вопрос!", "","", 1, 0);
+                }else
+                if(newPushMessages3.size()>1){
+                    sendBigPictureStyleNotification("У вас новое сообщение!", "Сообщение от ",
+                            "Изменение статуса", 0,
+                            1);//sendBigPictureStyleNotification("Вам задали вопрос!", "","", 1, 0);
+                }else
+                if(newPushMessages4.size()==1){
+                    sendBigPictureStyleNotification("У вас новое сообщение!", "Сообщение от ",
+                            "У вас новое сообщение в заказе документов", 0,
+                            1);//sendBigPictureStyleNotification("Вам задали вопрос!", "","", 1, 0);
+                }else
+                if(newPushMessages4.size()>1){
+                    sendBigPictureStyleNotification("У вас новое сообщение!", "Сообщение от ",
+                            "У вас новое сообщение в заказе документов", 0,
+                            1);//sendBigPictureStyleNotification("Вам задали вопрос!", "","", 1, 0);
+                }
+                if(newPushMessages5.size()==1){
+                    sendBigPictureStyleNotification("У вас новое сообщение!", "Сообщение от ",
+                            "Изменение статуса", 0,
+                            1);//sendBigPictureStyleNotification("Вам задали вопрос!", "","", 1, 0);
+                }else
+                if(newPushMessages5.size()>1){
+                    sendBigPictureStyleNotification("У вас новое сообщение!", "Сообщение от ",
+                            "Изменение статуса", 0,
+                            1);//sendBigPictureStyleNotification("Вам задали вопрос!", "","", 1, 0);
+                }else{
+
+                }
+            }
         }catch (Exception e){}
         /*try {
             jService = new JSONObject(s);
@@ -452,7 +457,13 @@ public class Service_mess extends Service {
         protected void onPostExecute(String result) {
             //Gson gson = new Gson();
             if(result!=null && 200<=code && code<300){
-                url_starting1(result);
+
+
+                if(start_flow){
+                    start_flow = false;
+                }else {
+                    url_starting1(result);
+                }
 
 //                if(sPref.getBoolean("pref_setting_push_ch_coord", false)){
 //                    putCurrentLatLon();

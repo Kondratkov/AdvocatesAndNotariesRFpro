@@ -69,6 +69,7 @@ public class Asked_user extends Activity {
     public int int_my_mess = 0;
     public Thread thread;
     TextView ask_tv_forum;
+
     public int code;
 
 
