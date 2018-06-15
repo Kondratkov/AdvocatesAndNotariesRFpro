@@ -1,5 +1,6 @@
 package kondratkov.advocatesandnotariesrfpro;
 
+import android.Manifest;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
@@ -8,6 +9,7 @@ import android.graphics.Color;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
+import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentPagerAdapter;
@@ -66,6 +68,8 @@ public class MainActivity extends FragmentActivity implements View.OnTouchListen
     public ImageView iv_1, iv_2;
     public IN in;
 
+    public  static final int RequestPermissionCode  = 1 ;
+
     public SharedPreferences sPref;
 
     @Override
@@ -78,6 +82,8 @@ public class MainActivity extends FragmentActivity implements View.OnTouchListen
 
         iv_1 = (ImageView)findViewById(R.id.my_quest_iv_1_main);
         iv_2 = (ImageView)findViewById(R.id.my_quest_iv_2_main);
+
+        onPermissions();
 
         in = new IN();
         in.set_context(this);
@@ -132,6 +138,17 @@ public class MainActivity extends FragmentActivity implements View.OnTouchListen
         super.onDestroy();
         Log.d("qwerty", "STOP SERVIS");
         stopService(new Intent(this, Service_mess.class));
+    }
+
+    public void onPermissions(){
+        ActivityCompat.requestPermissions(MainActivity.this,new String[]{
+                Manifest.permission.INTERNET,
+                Manifest.permission.ACCESS_COARSE_LOCATION,
+                Manifest.permission.ACCESS_FINE_LOCATION,
+                Manifest.permission.ACCESS_NETWORK_STATE,
+                Manifest.permission.READ_PHONE_STATE,
+                Manifest.permission.CAMERA,
+                Manifest.permission.WRITE_EXTERNAL_STORAGE}, RequestPermissionCode);
     }
 
     public void onClick(View v){
