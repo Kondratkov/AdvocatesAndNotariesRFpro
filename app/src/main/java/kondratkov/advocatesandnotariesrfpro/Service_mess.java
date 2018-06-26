@@ -269,68 +269,27 @@ public class Service_mess extends Service {
                     }
                 }
 
-                if(newPushMessages1.size()==1){
-                    if(sPref.getBoolean("pref_setting_push_1", true)==false){
-
-                    }else{
-
-                        sendBigPictureStyleNotification("У вас новое сообщение!", "Сообщение от ",
-                                "У вас новое сообщение", 2,
-                                newPushMessage[0].ServiceId);
-                    }
-                }else
-                if(newPushMessages1.size()>1){
-                    if(sPref.getBoolean("pref_setting_push_1", true)==false){
-
-                    }else{
-                        sendBigPictureStyleNotification("У вас новое сообщение!", "Сообщение от ",
-                                "У вас новые сообщения", 1,
-                                1);//sendBigPictureStyleNotification("Вам задали вопрос!", "","", 1, 0);
-                    }
-
-                }else
-                if(newPushMessages2.size()==1){
-                    sendBigPictureStyleNotification("У вас новое сообщение!", "Сообщение от ",
-                            "Новые сообщения в консультации", 0,
-                            1);//sendBigPictureStyleNotification("Вам задали вопрос!", "","", 1, 0);
-                }else
-                if(newPushMessages2.size()>1){
-                    sendBigPictureStyleNotification("У вас новое сообщение!", "Сообщение от ",
-                            "Новые сообщения в консультации", 0,
-                            1);//sendBigPictureStyleNotification("Вам задали вопрос!", "","", 1, 0);
-                }else
-                if(newPushMessages3.size()==1){
-                    sendBigPictureStyleNotification("У вас новое сообщение!", "Сообщение от ",
-                            "изменение статуса", 0,
-                            1);//sendBigPictureStyleNotification("Вам задали вопрос!", "","", 1, 0);
-                }else
-                if(newPushMessages3.size()>1){
-                    sendBigPictureStyleNotification("У вас новое сообщение!", "Сообщение от ",
-                            "Изменение статуса", 0,
-                            1);//sendBigPictureStyleNotification("Вам задали вопрос!", "","", 1, 0);
-                }else
-                if(newPushMessages4.size()==1){
-                    sendBigPictureStyleNotification("У вас новое сообщение!", "Сообщение от ",
-                            "У вас новое сообщение в заказе документов", 0,
-                            1);//sendBigPictureStyleNotification("Вам задали вопрос!", "","", 1, 0);
-                }else
-                if(newPushMessages4.size()>1){
-                    sendBigPictureStyleNotification("У вас новое сообщение!", "Сообщение от ",
-                            "У вас новое сообщение в заказе документов", 0,
-                            1);//sendBigPictureStyleNotification("Вам задали вопрос!", "","", 1, 0);
-                }
-                if(newPushMessages5.size()==1){
-                    sendBigPictureStyleNotification("У вас новое сообщение!", "Сообщение от ",
-                            "Изменение статуса", 0,
-                            1);//sendBigPictureStyleNotification("Вам задали вопрос!", "","", 1, 0);
-                }else
-                if(newPushMessages5.size()>1){
-                    sendBigPictureStyleNotification("У вас новое сообщение!", "Сообщение от ",
-                            "Изменение статуса", 0,
-                            1);//sendBigPictureStyleNotification("Вам задали вопрос!", "","", 1, 0);
+                if(in.kost_push ==true){
+                    in.kost_push = false;
                 }else{
-
+                    if(newPushMessages1.size()==1){
+                        if(sPref.getBoolean("pref_setting_push_1", true)==false){
+                        }else{
+                            sendBigPictureStyleNotification("У вас новое сообщение!", "Сообщение от ",
+                                    "У вас новое сообщение", 2,
+                                    newPushMessage[0].ServiceId);
+                        }
+                    }else
+                    if(newPushMessages1.size()>1) {
+                        if (sPref.getBoolean("pref_setting_push_1", true) == false) {
+                        } else {
+                            sendBigPictureStyleNotification("У вас новое сообщение!", "Сообщение от ",
+                                    "У вас новые сообщения", 1,
+                                    1);//sendBigPictureStyleNotification("Вам задали вопрос!", "","", 1, 0);
+                        }
+                    }
                 }
+
             }
         }catch (Exception e){}
         /*try {
@@ -450,14 +409,19 @@ public class Service_mess extends Service {
             } catch (IOException e) {
                 e.printStackTrace();
             }
+
+
             return result;
         }
 
         @Override
         protected void onPostExecute(String result) {
-            //Gson gson = new Gson();
+            //Gson gson = new Gson()
+
             if(result!=null && 200<=code && code<300){
 
+                String ss = result;
+                String dd = "";
 
                 if(start_flow){
                     start_flow = false;

@@ -26,6 +26,8 @@ public class IN {
     public int get_id_jur(){return this.id_jur;}
     public void set_id_jur (int id_jur){this.id_jur = id_jur;}
 
+    public static boolean kost_push = false;
+
     public static String name_jur ="";
     public String get_name_jur(){return this.name_jur;}
     public void set_name_jur (String name_jur){this.name_jur = name_jur;}

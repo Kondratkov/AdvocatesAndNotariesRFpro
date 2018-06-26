@@ -369,7 +369,7 @@ public class Asked_user extends Activity {
                 for(int i = 0; i<msArraycomments.length; i++){
                     arrayList.add(msArraycomments[i]);
                 }
-
+                in.kost_push = true;
                 start_new_list();
             }
             super.onPostExecute(result);

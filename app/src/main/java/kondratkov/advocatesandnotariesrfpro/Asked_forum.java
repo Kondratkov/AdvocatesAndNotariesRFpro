@@ -412,6 +412,7 @@ class UrlConnectionTask1 extends AsyncTask<String, Void, String> {
         @Override
         protected void onPostExecute(String result) {
             if(result!=null && 200<=code && code<300){
+                in.kost_push = true;
                 //Gson gson = new Gson();]
                 new UrlConnectionTask1().execute();
                     /*Gson gson = new GsonBuilder().setDateFormat("MM-dd-yy HH:mm").create();
