@@ -111,12 +111,17 @@ public class Dialog_region {
             @Override
             public void onClick(View v) {
                 //region.Cities[id_city].Region = region;
-                String START;
-                START = region.Cities[id_city].Name;
-                START = region.Name;
-                START = new Gson().toJson(region);
-                START = region.Name;
-                di_r.iv_onRegion(region.Cities[id_city], region);
+                try{
+                    String START;
+                    START = region.Cities[id_city].Name;
+                    START = region.Name;
+                    START = new Gson().toJson(region);
+                    START = region.Name;
+                    di_r.iv_onRegion(region.Cities[id_city], region);
+                }catch (Exception e){
+
+                }
+
                 dialog.dismiss();
             }
         });

@@ -87,6 +87,16 @@ public class IN {
     public int get_font_3(){return this.font_3;}
     public void set_font_3 (int font_3){this.font_3 = font_3;}
 
+    private static String name_user;
+
+    public static String getName_user() {
+        return name_user;
+    }
+
+    public static void setName_user(String name_user) {
+        IN.name_user = name_user;
+    }
+
     public static JuristSpecialization[] list_specialization = null;
     public JuristSpecialization[] get_list_specialization(){return this.list_specialization;}
     public void set_list_specialization (JuristSpecialization[] list_specialization){this.list_specialization = list_specialization;}

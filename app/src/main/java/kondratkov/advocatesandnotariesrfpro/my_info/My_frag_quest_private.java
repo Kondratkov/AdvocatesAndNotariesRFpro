@@ -95,7 +95,7 @@ public class My_frag_quest_private extends Fragment {
                                     long id) {
                 in.set_idt(clientQuestion_now[(int) id].Id);
                 MyApplication.getInstance().setClientQuestion(clientQuestion_now[(int)id]);
-
+                in.setName_user(clientQuestion_now[(int) id].Account.Fio);
                 in.set_place(0);
                 in.set_Tip(true);
                 Intent inte = new Intent(in.get_context(), Asked_user.class);

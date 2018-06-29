@@ -117,11 +117,11 @@
                     android:textColor="#b0a06e" />
 
                 <TextView
+                    android:id="@+id/forum_tv_quest_nik"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text=""
-                    android:id="@+id/forum_tv_quest_nik"
-                    android:textSize="9dp" />
+                    android:text="no name"
+                    android:textSize="9dp"/>
             </LinearLayout>
 
             <TextView

@@ -133,6 +133,7 @@ public class My_frag_quest_chat extends Fragment {
 
                 in.set_idt(msArrayclientQuestion[position].Id);
                 in.set_clientQuestion(msArrayclientQuestion[position]);
+                in.setName_user(msArrayclientQuestion[position].Account.Fio);
                 in.set_quest(0);
                 in.set_Tip(false);
                 in.set_place(1);
@@ -252,7 +253,9 @@ public class My_frag_quest_chat extends Fragment {
                 rowView.setBackgroundColor(Color.argb(45,1,1,1));
             }
 
-            tv_forum_quest_nik.setText(clientQuestions[position].Account.UserName);
+            //String d = clientQuestions[position].Account.UserName;
+            //String dd = clientQuestions[position].Account.Fio;
+            tv_forum_quest_nik.setText(clientQuestions[position].Account.Fio);
 
             try{
                 tv_forum_quest_date.setText(in.dateDisplay(clientQuestions[position].Date));

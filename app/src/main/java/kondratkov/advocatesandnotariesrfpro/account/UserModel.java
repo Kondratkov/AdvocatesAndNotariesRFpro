@@ -8,6 +8,7 @@ public class UserModel {
 
     public String UserName = "";
     public String Password = "";
+    public String Fio = "";
     public String ConfirmPassword = "";
     public AccountTypes AccountType = null;
     public int AccountId;

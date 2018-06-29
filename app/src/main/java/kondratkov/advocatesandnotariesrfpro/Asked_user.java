@@ -288,10 +288,13 @@ public class Asked_user extends Activity {
                         tv_mess_date.setText(String.valueOf(dateJSON));
                     }*/
 
+                    if(in.getName_user().equals("")){
+                        in.setName_user(comments1.get(position).From);
+                    }
 
                 tv_mess_date.setText(in.dateDisplay(comments1.get(position).Date));
                 tv_mess.setText(comments1.get(position).Message);
-                tv_nik_user_mess.setText(comments1.get(position).From);
+                tv_nik_user_mess.setText(in.getName_user());
                 //icon_user_mess.setBackgroundResource(Integer.parseInt(list.get(position).getString("iconuser")));
             } else {
                 rowView = inflater.inflate(R.layout.asked_item_jur, parent, false);

@@ -105,7 +105,6 @@ public class Asked_forum extends Activity {
         ask_tv_nik = (TextView)findViewById(R.id.ask_tv_nik);
 
         ask_tv_forum.setText("чат");
-
         //in.set_idt(getIntent().getIntExtra("id", 0));
     }
 
@@ -296,7 +295,10 @@ class MyAdapterMess extends ArrayAdapter {
             tv_mess_date.setText(in.dateDisplay(comments1.get(position).Date));
             tv_mess.setText(comments1.get(position).Body);
             try{
-                tv_nik_user_mess.setText(comments1.get(position).Account.Fio);
+                if(in.getName_user().equals("")){
+                    in.setName_user(comments1.get(position).Account.Fio);
+                }
+                tv_nik_user_mess.setText(in.getName_user());
             }catch (Exception e){}
 
             //icon_user_mess.setBackgroundResource(Integer.parseInt(list.get(position).getString("iconuser")));
